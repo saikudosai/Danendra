@@ -265,82 +265,63 @@
                 <p class="text-gray-600">Pilih paket yang sesuai dengan kebutuhan pernikahan Anda. Bayar sekali, tanpa biaya langganan.</p>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <!-- Package Basic -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Package Tanpa Foto -->
                 <div class="relative rounded-3xl p-8 border bg-white text-gray-900 border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col">
                     <div class="mb-8">
-                        <h4 class="text-xl font-bold mb-2 text-gray-900">Basic</h4>
+                        <h4 class="text-xl font-bold mb-2 text-gray-900">Tanpa Foto</h4>
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="text-sm text-gray-400 line-through">Rp 99.000</span>
+                            <span class="text-[10px] font-bold text-red-600 bg-red-100 px-2 py-0.5 rounded-full tracking-wide">HEMAT 64%</span>
+                        </div>
                         <div class="flex items-baseline gap-1">
                             <span class="text-sm font-medium">Rp</span>
-                            <span class="text-4xl font-bold tracking-tight">99</span>
+                            <span class="text-4xl font-bold tracking-tight">35</span>
                             <span class="text-sm text-gray-500">.000</span>
                         </div>
                     </div>
                     <ul class="space-y-4 mb-8 flex-grow">
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-brown-600"></i><span class="text-sm text-gray-600">Masa Aktif 3 Bulan</span></li>
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-brown-600"></i><span class="text-sm text-gray-600">Tema Terbatas</span></li>
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-brown-600"></i><span class="text-sm text-gray-600">Maksimal 5 Foto Galeri</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-brown-600"></i><span class="text-sm text-gray-600">Masa Aktif 6 Bulan</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-brown-600"></i><span class="text-sm text-gray-600">Bebas Pilih Tema</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="x-circle" class="w-5 h-5 flex-shrink-0 text-gray-300"></i><span class="text-sm text-gray-400 line-through">Galeri Foto</span></li>
                         <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-brown-600"></i><span class="text-sm text-gray-600">Hitung Mundur (Countdown)</span></li>
                         <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-brown-600"></i><span class="text-sm text-gray-600">RSVP & Buku Tamu</span></li>
                         <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-brown-600"></i><span class="text-sm text-gray-600">Navigasi Peta</span></li>
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-brown-600"></i><span class="text-sm text-gray-600">Tanpa Video</span></li>
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-brown-600"></i><span class="text-sm text-gray-600">Musik Default</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-brown-600"></i><span class="text-sm text-gray-600">Musik Latar</span></li>
                     </ul>
-                    <button onclick="openModal('Paket Basic')" class="w-full py-3.5 rounded-xl font-semibold transition-all bg-brown-50 text-brown-700 hover:bg-brown-100">
+                    <button onclick="openModal('Paket Tanpa Foto')" class="w-full py-3.5 rounded-xl font-semibold transition-all bg-brown-50 text-brown-700 hover:bg-brown-100 border border-brown-200">
                         Pilih Paket Ini
                     </button>
                 </div>
 
-                <!-- Package Premium (Popular) -->
-                <div class="relative rounded-3xl p-8 border bg-brown-800 text-white shadow-2xl border-brown-800 scale-100 lg:scale-105 z-10 transition-all duration-300 flex flex-col">
-                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gold-500 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
+                <!-- Package Dengan Foto (Popular) -->
+                <div class="relative rounded-3xl p-8 border bg-brown-800 text-white shadow-2xl border-brown-800 scale-100 md:scale-105 z-10 transition-all duration-300 flex flex-col">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-gold-500 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg">
                         Paling Laris
                     </div>
                     <div class="mb-8">
-                        <h4 class="text-xl font-bold mb-2 text-white">Premium</h4>
+                        <h4 class="text-xl font-bold mb-2 text-white">Dengan Foto</h4>
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="text-sm text-gray-400 line-through">Rp 210.000</span>
+                            <span class="text-[10px] font-bold text-red-600 bg-red-100 px-2 py-0.5 rounded-full tracking-wide">HEMAT 53%</span>
+                        </div>
                         <div class="flex items-baseline gap-1">
                             <span class="text-sm font-medium">Rp</span>
-                            <span class="text-4xl font-bold tracking-tight">149</span>
+                            <span class="text-4xl font-bold tracking-tight">99</span>
                             <span class="text-sm text-gold-400">.000</span>
                         </div>
                     </div>
                     <ul class="space-y-4 mb-8 flex-grow">
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-gold-400"></i><span class="text-sm text-brown-50">Masa Aktif 6 Bulan</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-gold-400"></i><span class="text-sm text-brown-50">Masa Aktif 1 Tahun</span></li>
                         <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-gold-400"></i><span class="text-sm text-brown-50">Bebas Pilih Tema</span></li>
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-gold-400"></i><span class="text-sm text-brown-50">Maksimal 10 Foto Galeri</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-gold-400"></i><span class="text-sm text-brown-50">Galeri Foto (Maks 20 Foto)</span></li>
                         <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-gold-400"></i><span class="text-sm text-brown-50">Hitung Mundur (Countdown)</span></li>
                         <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-gold-400"></i><span class="text-sm text-brown-50">RSVP & Buku Tamu</span></li>
                         <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-gold-400"></i><span class="text-sm text-brown-50">Navigasi Peta</span></li>
                         <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-gold-400"></i><span class="text-sm text-brown-50">Custom Musik Latar</span></li>
                         <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-gold-400"></i><span class="text-sm text-brown-50">Fitur Kirim Kado/Angpao</span></li>
                     </ul>
-                    <button onclick="openModal('Paket Premium')" class="w-full py-3.5 rounded-xl font-semibold transition-all bg-white text-brown-800 hover:bg-brown-50">
-                        Pilih Paket Ini
-                    </button>
-                </div>
-
-                <!-- Package Eksklusif -->
-                <div class="relative rounded-3xl p-8 border bg-white text-gray-900 border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col">
-                    <div class="mb-8">
-                        <h4 class="text-xl font-bold mb-2 text-gray-900">Eksklusif</h4>
-                        <div class="flex items-baseline gap-1">
-                            <span class="text-sm font-medium">Rp</span>
-                            <span class="text-4xl font-bold tracking-tight">199</span>
-                            <span class="text-sm text-gray-500">.000</span>
-                        </div>
-                    </div>
-                    <ul class="space-y-4 mb-8 flex-grow">
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-brown-600"></i><span class="text-sm text-gray-600">Masa Aktif 1 Tahun</span></li>
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-brown-600"></i><span class="text-sm text-gray-600">Bebas Pilih Semua Tema</span></li>
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-brown-600"></i><span class="text-sm text-gray-600">Maksimal 20 Foto Galeri</span></li>
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-brown-600"></i><span class="text-sm text-gray-600">Hitung Mundur (Countdown)</span></li>
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-brown-600"></i><span class="text-sm text-gray-600">RSVP & Buku Tamu Spesial</span></li>
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-brown-600"></i><span class="text-sm text-gray-600">Navigasi Peta</span></li>
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-brown-600"></i><span class="text-sm text-gray-600">Custom Musik & Autoplay</span></li>
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-brown-600"></i><span class="text-sm text-gray-600">Integrasi Video YouTube</span></li>
-                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-brown-600"></i><span class="text-sm text-gray-600">Custom Nama Domain</span></li>
-                    </ul>
-                    <button onclick="openModal('Paket Eksklusif')" class="w-full py-3.5 rounded-xl font-semibold transition-all bg-brown-50 text-brown-700 hover:bg-brown-100">
+                    <button onclick="openModal('Paket Dengan Foto')" class="w-full py-3.5 rounded-xl font-semibold transition-all bg-white text-brown-800 hover:bg-brown-50 shadow-md">
                         Pilih Paket Ini
                     </button>
                 </div>
@@ -544,7 +525,9 @@
             { id: 6, title: 'Classic Javanese', category: 'Tradisional', image: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=600&q=80', price: 'Rp 199.000', isNew: false },
             { id: 7, title: 'Botanical Garden', category: 'Floral', image: 'https://images.unsplash.com/photo-1507504031003-b4172440e0b6?auto=format&fit=crop&w=600&q=80', price: 'Rp 149.000', isNew: true },
             { id: 8, title: 'Luxury Platinum', category: 'Elegan', image: 'https://images.unsplash.com/photo-1544928147-79a2dbc1f389?auto=format&fit=crop&w=600&q=80', price: 'Rp 199.000', isNew: false },
-            { id: 9, title: 'Vintage Heritage', category: 'Tradisional', image: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=600&q=80', price: 'Rp 149.000', isNew: true }
+            { id: 9, title: 'Vintage Heritage', category: 'Tradisional', image: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=600&q=80', price: 'Rp 149.000', isNew: true },
+            // Mengambil screenshot otomatis dari halaman website sumber menggunakan API thum.io
+            { id: 10, title: 'Fairytale', category: 'Floral', image: 'https://image.thum.io/get/width/600/crop/800/https://3dmotion.vercel.app/', price: 'Rp 149.000', isNew: true, previewLink: 'https://3dmotion.vercel.app/' }
         ];
 
         // Categories extraction
@@ -588,14 +571,21 @@
                     ? `<div class="absolute top-2 left-2 md:top-4 md:left-4 bg-gold-500 text-white text-[8px] md:text-xs font-bold px-2 py-0.5 md:px-3 md:py-1 rounded-full uppercase tracking-wide">Baru</div>` 
                     : '';
 
+                const playAction = theme.previewLink 
+                    ? `window.open('${theme.previewLink}', '_blank')` 
+                    : `alert('Preview untuk tema ini sedang disiapkan.')`;
+
+                // Fallback image jika API screenshot gagal memuat
+                const fallbackImage = "this.onerror=null;this.src='https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?auto=format&fit=crop&w=600&q=80';";
+
                 const cardHTML = `
                     <div class="bg-white rounded-xl md:rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group flex flex-col">
                         <div class="relative overflow-hidden aspect-[3/4] md:aspect-[4/5]">
-                            <img src="${theme.image}" alt="${theme.title}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"/>
+                            <img src="${theme.image}" onerror="${fallbackImage}" alt="${theme.title}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"/>
                             ${newBadge}
                             <!-- Overlay on hover -->
                             <div class="absolute inset-0 bg-gray-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col md:flex-row items-center justify-center gap-2 md:gap-3 backdrop-blur-sm">
-                                <button class="bg-white text-gray-900 hover:text-brown-700 p-2 md:p-3 rounded-full shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-75">
+                                <button onclick="${playAction}" class="bg-white text-gray-900 hover:text-brown-700 p-2 md:p-3 rounded-full shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-75">
                                     <i data-lucide="play" class="w-4 h-4 md:w-5 md:h-5 fill-current"></i>
                                 </button>
                                 <button onclick="openModal('${theme.title}')" class="bg-brown-700 hover:bg-brown-800 text-white px-3 py-1.5 md:px-6 md:py-3 rounded-full text-xs md:text-base font-medium shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-100 flex items-center gap-1 md:gap-2">
@@ -630,9 +620,8 @@
             select.innerHTML = '<option value="" class="text-gray-900">-- Pilih Tema / Paket --</option>';
             
             // Add Packages
-            select.innerHTML += '<option value="Paket Basic" class="text-gray-900">Paket Basic</option>';
-            select.innerHTML += '<option value="Paket Premium" class="text-gray-900">Paket Premium</option>';
-            select.innerHTML += '<option value="Paket Eksklusif" class="text-gray-900">Paket Eksklusif</option>';
+            select.innerHTML += '<option value="Paket Tanpa Foto" class="text-gray-900">Paket Tanpa Foto</option>';
+            select.innerHTML += '<option value="Paket Dengan Foto" class="text-gray-900">Paket Dengan Foto</option>';
             
             // Add Themes
             THEMES.forEach(theme => {

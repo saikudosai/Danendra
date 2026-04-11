@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danendra - Katalog Undangan Digital</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config for Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        /* Custom Animation */
+        @keyframes blob {
+            0% { transform: translate(0px, 0px) scale(1); }
+            33% { transform: translate(30px, -50px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+            100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob {
+            animation: blob 7s infinite;
+        }
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-stone-50 min-h-screen">
+
+    <!-- NAVBAR -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md z-50 shadow-sm border-b border-stone-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer">
+                    <span class="font-serif text-2xl font-bold text-emerald-800 flex items-center gap-2">
+                        <i data-lucide="heart" class="w-6 h-6 text-emerald-600 fill-emerald-600"></i>
+                        Danendra
+                    </span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#beranda" class="text-gray-600 hover:text-emerald-700 font-medium transition-colors">Beranda</a>
+                    <a href="#fitur" class="text-gray-600 hover:text-emerald-700 font-medium transition-colors">Fitur</a>
+                    <a href="#tema" class="text-gray-600 hover:text-emerald-700 font-medium transition-colors">Katalog Tema</a>
+                    <a href="#harga" class="text-gray-600 hover:text-emerald-700 font-medium transition-colors">Harga</a>
+                    <a href="#kontak" class="bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-2.5 rounded-full font-medium transition-all shadow-md hover:shadow-lg">
+                        Pesan Sekarang
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-gray-600 hover:text-emerald-700 focus:outline-none p-2">
+                        <i data-lucide="menu" class="w-6 h-6" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#beranda" class="mobile-link block px-3 py-3 text-base font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-md">Beranda</a>
+                <a href="#fitur" class="mobile-link block px-3 py-3 text-base font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-md">Fitur</a>
+                <a href="#tema" class="mobile-link block px-3 py-3 text-base font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-md">Katalog Tema</a>
+                <a href="#harga" class="mobile-link block px-3 py-3 text-base font-medium text-gray-700 hover:text-emerald-700 hover:bg-emerald-50 rounded-md">Harga</a>
+                <a href="#kontak" class="mobile-link block w-full text-center mt-4 bg-emerald-700 text-white px-6 py-3 rounded-full font-medium">Pesan Sekarang</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="beranda" class="pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden relative">
+        <div class="absolute top-0 left-0 w-full h-full bg-emerald-50/50 -z-10"></div>
+        <!-- Decorative elements -->
+        <div class="absolute top-20 -left-20 w-72 h-72 bg-emerald-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+        <div class="absolute top-40 -right-20 w-72 h-72 bg-amber-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center max-w-3xl mx-auto">
+                <h1 class="font-serif text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+                    Bagikan Kabar Bahagia dengan <span class="text-emerald-700 italic">Lebih Elegan</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed">
+                    Buat undangan pernikahan digital impianmu hanya dalam hitungan menit. Estetik, praktis, dan ramah lingkungan.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="#tema" class="w-full sm:w-auto px-8 py-3.5 bg-emerald-700 hover:bg-emerald-800 text-white rounded-full font-medium transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2">
+                        Lihat Katalog Tema <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#fitur" class="w-full sm:w-auto px-8 py-3.5 bg-white border border-emerald-200 hover:border-emerald-300 text-emerald-800 rounded-full font-medium transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2">
+                        <i data-lucide="play" class="w-4 h-4 fill-emerald-800"></i> Cara Kerja
+                    </a>
+                </div>
+                
+                <!-- Hero Image Mockup -->
+                <div class="mt-16 relative mx-auto max-w-4xl">
+                    <div class="relative rounded-2xl shadow-2xl overflow-hidden border-8 border-white bg-white">
+                        <img 
+                            src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=80" 
+                            alt="Preview Undangan" 
+                            class="w-full h-[300px] md:h-[500px] object-cover"
+                        />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end justify-center pb-8">
+                            <p class="text-white font-serif text-2xl md:text-3xl font-medium tracking-wide">Romeo & Juliet</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section id="fitur" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-emerald-700 font-semibold tracking-wider uppercase text-sm mb-2">Kenapa Memilih Kami?</h2>
+                <h3 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-4">Fitur Lengkap untuk Momen Spesialmu</h3>
+                <p class="text-gray-600">Semua yang kamu butuhkan untuk membagikan kabar bahagia ke orang-orang terdekat dengan cara yang modern.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="p-8 rounded-2xl bg-stone-50 border border-stone-100 hover:shadow-lg transition-shadow duration-300 group">
+                    <div class="w-14 h-14 bg-emerald-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="smartphone" class="w-8 h-8 text-emerald-700"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Responsif</h4>
+                    <p class="text-gray-600 leading-relaxed">Tampilan undangan menyesuaikan otomatis di berbagai ukuran layar (HP, Tablet, PC).</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="p-8 rounded-2xl bg-stone-50 border border-stone-100 hover:shadow-lg transition-shadow duration-300 group">
+                    <div class="w-14 h-14 bg-emerald-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="music" class="w-8 h-8 text-emerald-700"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Musik Latar</h4>
+                    <p class="text-gray-600 leading-relaxed">Bebas pilih lagu favorit untuk diputar otomatis saat undangan dibuka.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="p-8 rounded-2xl bg-stone-50 border border-stone-100 hover:shadow-lg transition-shadow duration-300 group">
+                    <div class="w-14 h-14 bg-emerald-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="map-pin" class="w-8 h-8 text-emerald-700"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Integrasi Peta</h4>
+                    <p class="text-gray-600 leading-relaxed">Memudahkan tamu menemukan lokasi acara dengan navigasi Google Maps.</p>
+                </div>
+                <!-- Feature 4 -->
+                <div class="p-8 rounded-2xl bg-stone-50 border border-stone-100 hover:shadow-lg transition-shadow duration-300 group">
+                    <div class="w-14 h-14 bg-emerald-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="calendar" class="w-8 h-8 text-emerald-700"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Hitung Mundur</h4>
+                    <p class="text-gray-600 leading-relaxed">Fitur countdown timer untuk mengingatkan tamu kapan acara dimulai.</p>
+                </div>
+                <!-- Feature 5 -->
+                <div class="p-8 rounded-2xl bg-stone-50 border border-stone-100 hover:shadow-lg transition-shadow duration-300 group">
+                    <div class="w-14 h-14 bg-emerald-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="message-square" class="w-8 h-8 text-emerald-700"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">RSVP & Ucapan</h4>
+                    <p class="text-gray-600 leading-relaxed">Tamu dapat mengonfirmasi kehadiran dan memberikan ucapan selamat.</p>
+                </div>
+                <!-- Feature 6 -->
+                <div class="p-8 rounded-2xl bg-stone-50 border border-stone-100 hover:shadow-lg transition-shadow duration-300 group">
+                    <div class="w-14 h-14 bg-emerald-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i data-lucide="heart" class="w-8 h-8 text-emerald-700"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-gray-900 mb-3">Galeri Foto</h4>
+                    <p class="text-gray-600 leading-relaxed">Tampilkan momen pre-wedding terbaik Anda dalam galeri yang estetik.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CATALOG SECTION -->
+    <section id="tema" class="py-20 bg-stone-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                <div class="max-w-xl">
+                    <h2 class="text-emerald-700 font-semibold tracking-wider uppercase text-sm mb-2">Koleksi Desain</h2>
+                    <h3 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-4">Pilih Tema Favoritmu</h3>
+                    <p class="text-gray-600">Beragam pilihan tema yang dirancang khusus untuk merepresentasikan kisah cinta kalian.</p>
+                </div>
+                
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap gap-2" id="filter-container">
+                    <!-- Buttons will be generated by JS -->
+                </div>
+            </div>
+
+            <!-- Theme Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="themes-grid">
+                <!-- Themes will be generated by JS -->
+            </div>
+            
+            <div class="mt-12 text-center">
+                <button class="inline-flex items-center gap-2 text-emerald-700 font-medium hover:text-emerald-800 transition-colors">
+                    Lihat Semua Tema <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section id="harga" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-emerald-700 font-semibold tracking-wider uppercase text-sm mb-2">Paket & Harga</h2>
+                <h3 class="font-serif text-3xl md:text-4xl font-bold text-gray-900 mb-4">Investasi Terjangkau untuk Momen Berharga</h3>
+                <p class="text-gray-600">Pilih paket yang sesuai dengan kebutuhan pernikahan Anda. Bayar sekali, tanpa biaya langganan.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Package Basic -->
+                <div class="relative rounded-3xl p-8 border bg-white text-gray-900 border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col">
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-2 text-gray-900">Basic</h4>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-sm font-medium">Rp</span>
+                            <span class="text-4xl font-bold tracking-tight">99</span>
+                            <span class="text-sm text-gray-500">.000</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-emerald-600"></i><span class="text-sm text-gray-600">Masa Aktif 3 Bulan</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-emerald-600"></i><span class="text-sm text-gray-600">Tema Terbatas</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-emerald-600"></i><span class="text-sm text-gray-600">Maksimal 5 Foto Galeri</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-emerald-600"></i><span class="text-sm text-gray-600">Hitung Mundur (Countdown)</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-emerald-600"></i><span class="text-sm text-gray-600">RSVP & Buku Tamu</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-emerald-600"></i><span class="text-sm text-gray-600">Navigasi Peta</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-emerald-600"></i><span class="text-sm text-gray-600">Tanpa Video</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-emerald-600"></i><span class="text-sm text-gray-600">Musik Default</span></li>
+                    </ul>
+                    <button class="w-full py-3.5 rounded-xl font-semibold transition-all bg-emerald-50 text-emerald-700 hover:bg-emerald-100">
+                        Pilih Paket Ini
+                    </button>
+                </div>
+
+                <!-- Package Premium (Popular) -->
+                <div class="relative rounded-3xl p-8 border bg-emerald-800 text-white shadow-2xl border-emerald-800 scale-100 lg:scale-105 z-10 transition-all duration-300 flex flex-col">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-amber-500 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
+                        Paling Laris
+                    </div>
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-2 text-white">Premium</h4>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-sm font-medium">Rp</span>
+                            <span class="text-4xl font-bold tracking-tight">149</span>
+                            <span class="text-sm text-emerald-200">.000</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-emerald-300"></i><span class="text-sm text-emerald-50">Masa Aktif 6 Bulan</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-emerald-300"></i><span class="text-sm text-emerald-50">Bebas Pilih Tema</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-emerald-300"></i><span class="text-sm text-emerald-50">Maksimal 10 Foto Galeri</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-emerald-300"></i><span class="text-sm text-emerald-50">Hitung Mundur (Countdown)</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-emerald-300"></i><span class="text-sm text-emerald-50">RSVP & Buku Tamu</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-emerald-300"></i><span class="text-sm text-emerald-50">Navigasi Peta</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-emerald-300"></i><span class="text-sm text-emerald-50">Custom Musik Latar</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-emerald-300"></i><span class="text-sm text-emerald-50">Fitur Kirim Kado/Angpao</span></li>
+                    </ul>
+                    <button class="w-full py-3.5 rounded-xl font-semibold transition-all bg-white text-emerald-800 hover:bg-emerald-50">
+                        Pilih Paket Ini
+                    </button>
+                </div>
+
+                <!-- Package Eksklusif -->
+                <div class="relative rounded-3xl p-8 border bg-white text-gray-900 border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col">
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-2 text-gray-900">Eksklusif</h4>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-sm font-medium">Rp</span>
+                            <span class="text-4xl font-bold tracking-tight">199</span>
+                            <span class="text-sm text-gray-500">.000</span>
+                        </div>
+                    </div>
+                    <ul class="space-y-4 mb-8 flex-grow">
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-emerald-600"></i><span class="text-sm text-gray-600">Masa Aktif 1 Tahun</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-emerald-600"></i><span class="text-sm text-gray-600">Bebas Pilih Semua Tema</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-emerald-600"></i><span class="text-sm text-gray-600">Maksimal 20 Foto Galeri</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-emerald-600"></i><span class="text-sm text-gray-600">Hitung Mundur (Countdown)</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-emerald-600"></i><span class="text-sm text-gray-600">RSVP & Buku Tamu Spesial</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-emerald-600"></i><span class="text-sm text-gray-600">Navigasi Peta</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-emerald-600"></i><span class="text-sm text-gray-600">Custom Musik & Autoplay</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-emerald-600"></i><span class="text-sm text-gray-600">Integrasi Video YouTube</span></li>
+                        <li class="flex items-start gap-3"><i data-lucide="check-circle-2" class="w-5 h-5 flex-shrink-0 text-emerald-600"></i><span class="text-sm text-gray-600">Custom Nama Domain</span></li>
+                    </ul>
+                    <button class="w-full py-3.5 rounded-xl font-semibold transition-all bg-emerald-50 text-emerald-700 hover:bg-emerald-100">
+                        Pilih Paket Ini
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CALL TO ACTION / FOOTER -->
+    <footer id="kontak" class="bg-gray-900 text-white pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                
+                <!-- Brand -->
+                <div class="lg:col-span-1">
+                    <span class="font-serif text-3xl font-bold text-white flex items-center gap-2 mb-6">
+                        <i data-lucide="heart" class="w-8 h-8 text-emerald-500 fill-emerald-500"></i>
+                        Danendra
+                    </span>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Platform pembuatan undangan pernikahan digital premium, cepat, dan mudah digunakan. Ciptakan kesan mendalam untuk tamu undangan Anda.
+                    </p>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 font-serif">Layanan</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-emerald-400 transition-colors">Katalog Tema</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition-colors">Paket & Harga</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition-colors">Cara Pemesanan</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition-colors">Testimoni Klien</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 font-serif">Bantuan</h4>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-emerald-400 transition-colors">Syarat & Ketentuan</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition-colors">Kebijakan Privasi</a></li>
+                        <li><a href="#" class="hover:text-emerald-400 transition-colors">FAQ (Tanya Jawab)</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 font-serif">Hubungi Kami</h4>
+                    <p class="text-gray-400 text-sm mb-4">Punya pertanyaan atau butuh bantuan? Tim kami siap melayani Anda.</p>
+                    <a 
+                        href="https://wa.me/6281234567890" 
+                        target="_blank" 
+                        class="inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-3 rounded-xl font-medium transition-colors w-full"
+                    >
+                        <i data-lucide="message-square" class="w-5 h-5"></i> Chat WhatsApp
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">
+                    &copy; <span id="year"></span> Danendra Digital Invitation. All rights reserved.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-500 hover:text-white transition-colors">
+                        <span class="sr-only">Instagram</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.047-1.379.06-3.808.06-2.43 0-2.784-.013-3.808-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" /></svg>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-white transition-colors">
+                        <span class="sr-only">Facebook</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.891h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // Set Current Year in Footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.setAttribute('data-lucide', 'x');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if(isMenuOpen) toggleMenu();
+            });
+        });
+
+        // Theme Data
+        const THEMES = [
+            { id: 1, title: 'Rustic Romance', category: 'Floral', image: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80', price: 'Rp 149.000', isNew: true },
+            { id: 2, title: 'Minimalist Elegance', category: 'Minimalis', image: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=600&q=80', price: 'Rp 99.000', isNew: false },
+            { id: 3, title: 'Golden Glamour', category: 'Elegan', image: 'https://images.unsplash.com/photo-1505932794465-147d1f1b2c97?auto=format&fit=crop&w=600&q=80', price: 'Rp 199.000', isNew: true },
+            { id: 4, title: 'Watercolor Bliss', category: 'Floral', image: 'https://images.unsplash.com/photo-1469371670807-013ccf25f16a?auto=format&fit=crop&w=600&q=80', price: 'Rp 149.000', isNew: false },
+            { id: 5, title: 'Modern Monochrome', category: 'Minimalis', image: 'https://images.unsplash.com/photo-1606800052052-a08af7148866?auto=format&fit=crop&w=600&q=80', price: 'Rp 99.000', isNew: false },
+            { id: 6, title: 'Classic Javanese', category: 'Tradisional', image: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=600&q=80', price: 'Rp 199.000', isNew: false }
+        ];
+
+        // Categories extraction
+        const categories = ['Semua', ...new Set(THEMES.map(theme => theme.category))];
+        let activeCategory = 'Semua';
+
+        const filterContainer = document.getElementById('filter-container');
+        const themesGrid = document.getElementById('themes-grid');
+
+        // Render Filter Buttons
+        function renderFilters() {
+            filterContainer.innerHTML = '';
+            categories.forEach(category => {
+                const btn = document.createElement('button');
+                const isActive = activeCategory === category;
+                
+                btn.className = `px-5 py-2 rounded-full text-sm font-medium transition-all ${
+                    isActive 
+                    ? 'bg-emerald-700 text-white shadow-md' 
+                    : 'bg-white text-gray-600 border border-gray-200 hover:border-emerald-500 hover:text-emerald-700'
+                }`;
+                btn.textContent = category;
+                btn.onclick = () => {
+                    activeCategory = category;
+                    renderFilters(); // Re-render to update active styling
+                    renderThemes();  // Filter grid
+                };
+                filterContainer.appendChild(btn);
+            });
+        }
+
+        // Render Theme Grid
+        function renderThemes() {
+            themesGrid.innerHTML = '';
+            const filteredThemes = activeCategory === 'Semua' 
+                ? THEMES 
+                : THEMES.filter(theme => theme.category === activeCategory);
+
+            filteredThemes.forEach(theme => {
+                const newBadge = theme.isNew 
+                    ? `<div class="absolute top-4 left-4 bg-amber-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">Baru</div>` 
+                    : '';
+
+                const cardHTML = `
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group flex flex-col">
+                        <div class="relative overflow-hidden aspect-[4/5]">
+                            <img src="${theme.image}" alt="${theme.title}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"/>
+                            ${newBadge}
+                            <!-- Overlay on hover -->
+                            <div class="absolute inset-0 bg-gray-900/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3 backdrop-blur-sm">
+                                <button class="bg-white text-gray-900 hover:text-emerald-700 p-3 rounded-full shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-75">
+                                    <i data-lucide="play" class="w-5 h-5 fill-current"></i>
+                                </button>
+                                <button class="bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-3 rounded-full font-medium shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 delay-100 flex items-center gap-2">
+                                    <i data-lucide="shopping-cart" class="w-4 h-4"></i> Pesan
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow">
+                            <div class="text-sm text-emerald-600 font-medium mb-1">${theme.category}</div>
+                            <h4 class="font-serif text-xl font-bold text-gray-900 mb-2">${theme.title}</h4>
+                            <div class="mt-auto flex justify-between items-center pt-4 border-t border-gray-50">
+                                <span class="text-gray-500 text-sm">Mulai dari</span>
+                                <span class="font-bold text-lg text-emerald-800">${theme.price}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                themesGrid.insertAdjacentHTML('beforeend', cardHTML);
+            });
+            // Re-initialize icons inside dynamically added elements
+            lucide.createIcons();
+        }
+
+        // Initial Render
+        renderFilters();
+        renderThemes();
+
+        // Initialize Icons for static HTML
+        lucide.createIcons();
+    </script>
+</body>
+</html>

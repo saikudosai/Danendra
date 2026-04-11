@@ -70,6 +70,12 @@
         .animation-delay-2000 {
             animation-delay: 2s;
         }
+        
+        /* Date Picker Icon to White */
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+            cursor: pointer;
+        }
     </style>
 </head>
 <body class="font-sans text-gray-800 bg-stone-50 min-h-screen">
@@ -448,7 +454,7 @@
                     </div>
                     <div>
                         <label class="block text-sm text-gray-200 mb-1">Tanggal Nikah</label>
-                        <input type="text" id="order-tanggal" placeholder="Estimasi tanggal pernikahan" class="w-full bg-black/40 border border-gray-400 text-white placeholder-gray-500 rounded px-3 py-2.5 focus:outline-none focus:border-gold-400 transition-colors text-sm">
+                        <input type="text" id="order-tanggal" placeholder="Estimasi tanggal pernikahan" onfocus="(this.type='date')" onblur="(this.value == '' ? this.type='text' : null)" class="w-full bg-black/40 border border-gray-400 text-white placeholder-gray-500 rounded px-3 py-2.5 focus:outline-none focus:border-gold-400 transition-colors text-sm">
                     </div>
                     <div>
                         <label class="block text-sm text-gray-200 mb-1">Tema Undangan</label>

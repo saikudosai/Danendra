@@ -739,7 +739,7 @@
                     <div class="pt-4" data-aos="zoom-in" data-aos-delay="700">
                         <button type="submit" class="w-full bg-[#8B5A2B] text-white font-bold py-3.5 px-6 rounded-xl hover:bg-[#5c3a21] transition-colors uppercase tracking-widest shadow-lg hover:shadow-xl flex justify-center items-center gap-2">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
-                            Kirim via WhatsApp
+                            Kirim Ucapan
                         </button>
                     </div>
                 </form>
@@ -1251,7 +1251,7 @@
         });
     </script>
 
-     <!-- FIREBASE MODULE SCRIPT (DATABASE UCAPAN) -->
+    <!-- FIREBASE MODULE SCRIPT (DATABASE UCAPAN) -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getFirestore, collection, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
@@ -1259,12 +1259,12 @@
         // === 1. MASUKKAN KONFIGURASI FIREBASE ANDA DI SINI ===
         // Ganti nilai-nilai di bawah ini dengan config dari Firebase Project Anda
         const firebaseConfig = {
-          apiKey: "AIzaSyBfDsE74-_C9cGwcrKi0PsqIDvHL8DdJRU",
-          authDomain: "weddinginvt-31874.firebaseapp.com",
-          projectId: "weddinginvt-31874",
-          storageBucket: "weddinginvt-31874.firebasestorage.app",
-          messagingSenderId: "790180635583",
-          appId: "1:790180635583:web:6339ef5d36167677df370a"
+            apiKey: "API_KEY_ANDA",
+            authDomain: "PROJECT_ID.firebaseapp.com",
+            projectId: "PROJECT_ID",
+            storageBucket: "PROJECT_ID.appspot.com",
+            messagingSenderId: "SENDER_ID",
+            appId: "APP_ID"
         };
         // =====================================================
 
@@ -1296,9 +1296,13 @@
 
                 comments.forEach(comment => {
                     const initial = comment.name ? comment.name.charAt(0).toUpperCase() : '?';
-                    const attendanceBadge = comment.attendance === 'Hadir' 
-                        ? '<span class="text-green-600 text-[10px] ml-1 border border-green-600 px-1 rounded-full">✓ Hadir</span>' 
-                        : '';
+                    
+                    let attendanceBadge = '';
+                    if (comment.attendance === 'Hadir') {
+                        attendanceBadge = '<span class="text-green-600 text-[10px] ml-2 border border-green-600 px-2 py-0.5 rounded-full font-semibold whitespace-nowrap">✓ Hadir</span>';
+                    } else if (comment.attendance === 'Tidak Hadir') {
+                        attendanceBadge = '<span class="text-red-500 text-[10px] ml-2 border border-red-500 px-2 py-0.5 rounded-full font-semibold whitespace-nowrap">✗ Tidak Hadir</span>';
+                    }
                     
                     const date = new Date(comment.timestamp || Date.now());
                     const dateOptions = { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute:'2-digit' };
@@ -1309,8 +1313,8 @@
                             <div class="flex items-center gap-3 mb-2">
                                 <div class="w-8 h-8 rounded-full bg-[#8B5A2B] text-white flex items-center justify-center font-bold text-xs">${initial}</div>
                                 <div>
-                                    <p class="font-bold text-sm text-black">${comment.name} ${attendanceBadge}</p>
-                                    <p class="text-[10px] text-gray-500">${dateString}</p>
+                                    <p class="font-bold text-sm text-black flex items-center flex-wrap">${comment.name} ${attendanceBadge}</p>
+                                    <p class="text-[10px] text-gray-500 mt-1">${dateString}</p>
                                 </div>
                             </div>
                             <p class="text-sm text-black leading-relaxed whitespace-pre-line">${comment.message}</p>
@@ -1355,16 +1359,6 @@
                     message: message,
                     timestamp: Date.now()
                 });
-
-                // Generate Tautan WhatsApp (Sesuai nomor Anda)
-                const waNumber = "6281392514839"; 
-                let waText = `*Konfirmasi Kehadiran Undangan Rama & Shinta*%0A%0A`;
-                waText += `Nama: *${name}*%0A`;
-                waText += `Kehadiran: *${attendance}*%0A`;
-                if (attendance === 'Hadir') { waText += `Jumlah Tamu: *${guests} Orang*%0A`; }
-                waText += `%0A*Ucapan & Doa:*%0A"${message}"%0A`;
-
-                window.open(`https://wa.me/${waNumber}?text=${waText}`, '_blank');
 
                 const toast = document.getElementById('toast');
                 const msg = document.getElementById('toast-msg');

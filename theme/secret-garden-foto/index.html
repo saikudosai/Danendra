@@ -1256,6 +1256,11 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getFirestore, collection, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
+        // === ID UNIK UNTUK MASING-MASING UNDANGAN (CLIENT) ===
+        // Ganti ID ini untuk setiap project/pengantin yang berbeda (Tanpa Spasi)
+        const WEDDING_ID = "rama_shinta"; 
+        // =====================================================
+
         // === 1. MASUKKAN KONFIGURASI FIREBASE ANDA DI SINI ===
         // Ganti nilai-nilai di bawah ini dengan config dari Firebase Project Anda
         const firebaseConfig = {
@@ -1274,9 +1279,18 @@
         const commentsContainer = document.getElementById('comments-container');
         const rsvpForm = document.getElementById('rsvp-form');
 
+        // --- TAMBAHAN PERINGATAN JIKA CONFIG BELUM DIGANTI ---
+        if (firebaseConfig.apiKey === "API_KEY_ANDA") {
+            commentsContainer.innerHTML = '<div class="bg-red-50 border border-red-200 p-4 rounded-xl text-center"><p class="text-sm text-red-600 font-bold mb-1">⚠️ Konfigurasi Belum Diisi!</p><p class="text-xs text-red-500">Anda belum memasukkan kode config dari akun Firebase Anda ke dalam file HTML. Ucapan akan hilang saat halaman direfresh.</p></div>';
+        }
+        // -----------------------------------------------------
+
         // --- FUNGSI MEMUAT UCAPAN ---
         function loadComments() {
-            const commentsRef = collection(db, 'comments');
+            if (firebaseConfig.apiKey === "API_KEY_ANDA") return; // Hentikan jika config belum diisi
+            
+            // Gunakan WEDDING_ID untuk memisahkan koleksi komentar antar klien
+            const commentsRef = collection(db, `comments_${WEDDING_ID}`);
             
             onSnapshot(commentsRef, (snapshot) => {
                 let comments = [];
@@ -1339,6 +1353,16 @@
         rsvpForm.addEventListener('submit', async function(e) {
             e.preventDefault();
 
+            // Cek sebelum mengirim
+            if (firebaseConfig.apiKey === "API_KEY_ANDA") {
+                const toast = document.getElementById('toast');
+                const msg = document.getElementById('toast-msg');
+                msg.innerText = "Gagal! Masukkan Config Firebase Anda Dulu.";
+                toast.classList.remove('opacity-0');
+                setTimeout(() => toast.classList.add('opacity-0'), 3000);
+                return;
+            }
+
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalBtnText = submitBtn.innerHTML;
             submitBtn.innerHTML = 'Mengirim...';
@@ -1350,8 +1374,8 @@
             const message = document.getElementById('rsvp-message').value;
 
             try {
-                // Simpan ke Database Firestore Anda
-                const commentsRef = collection(db, 'comments');
+                // Simpan ke Database Firestore Anda ke dalam koleksi yang spesifik
+                const commentsRef = collection(db, `comments_${WEDDING_ID}`);
                 await addDoc(commentsRef, {
                     name: name,
                     attendance: attendance,

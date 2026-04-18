@@ -278,6 +278,25 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+
+        /* --- CUSTOM SCROLLBAR UNTUK UCAPAN --- */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.5);
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(139, 90, 43, 0.4);
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(139, 90, 43, 0.6);
+        }
+        .animation-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
         /* ------------------------------ */
 
     </style>
@@ -724,6 +743,20 @@
                         </button>
                     </div>
                 </form>
+
+                <!-- KOLOM UCAPAN (COMMENTS) -->
+                <div class="mt-12 pt-10 border-t border-[#8B5A2B]/30" data-aos="fade-up" data-aos-delay="800">
+                    <h3 class="text-xl md:text-2xl font-bold text-[#8B5A2B] mb-6 tracking-widest uppercase text-center">Ucapan & Doa</h3>
+                    
+                    <div id="comments-container" class="space-y-4 max-h-80 overflow-y-auto pr-2 custom-scrollbar text-left">
+                        <div class="flex justify-center py-8">
+                            <!-- Loading Spinner -->
+                            <svg class="animate-spin h-8 w-8 text-[#8B5A2B]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                        </div>
+                    </div>
+                </div>
+                <!-- END KOLOM UCAPAN -->
+
             </div>
         </section>
 
@@ -1024,43 +1057,6 @@
                 }
             });
 
-            document.getElementById('rsvp-form').addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const name = document.getElementById('rsvp-name').value;
-                const attendance = document.getElementById('rsvp-attendance').value;
-                const guests = document.getElementById('rsvp-guests').value;
-                const message = document.getElementById('rsvp-message').value;
-
-                // Nomor WhatsApp tujuan RSVP (Nomor Mempelai)
-                // Ganti "6281234567890" dengan nomor WhatsApp mempelai yang sebenarnya (gunakan 62 di awal)
-                const waNumber = "6281234567890"; 
-                
-                let waText = `*Konfirmasi Kehadiran Undangan Rama & Shinta*%0A%0A`;
-                waText += `Nama: *${name}*%0A`;
-                waText += `Kehadiran: *${attendance}*%0A`;
-                
-                if (attendance === 'Hadir') {
-                    waText += `Jumlah Tamu: *${guests} Orang*%0A`;
-                }
-                
-                waText += `%0A*Ucapan & Doa:*%0A"${message}"%0A`;
-
-                // Buka link WhatsApp
-                window.open(`https://wa.me/${waNumber}?text=${waText}`, '_blank');
-
-                // Tampilkan notifikasi
-                const toast = document.getElementById('toast');
-                const msg = document.getElementById('toast-msg');
-                msg.innerText = "Membuka WhatsApp...";
-                toast.classList.remove('opacity-0');
-                setTimeout(() => toast.classList.add('opacity-0'), 3000);
-
-                // Reset form
-                this.reset();
-                guestCountContainer.style.display = 'block'; // reset guest count visibility
-            });
-
             // FUNGSI UMUM UNTUK SLIDESHOW FOTO
             function setupSlideshow(selector, interval) {
                 let current = 0;
@@ -1252,6 +1248,157 @@
                 });
             }
 
+        });
+    </script>
+
+    <!-- FIREBASE MODULE SCRIPT (DATABASE UCAPAN) -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Setup Database
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+
+        let currentUser = null;
+        const commentsContainer = document.getElementById('comments-container');
+
+        // Autentikasi Pengunjung (Anonim)
+        const initAuth = async () => {
+            try {
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+            } catch (error) {
+                console.error("Auth error", error);
+                commentsContainer.innerHTML = '<p class="text-sm text-red-500 text-center py-4">Gagal memuat ucapan (Error Koneksi).</p>';
+            }
+        };
+        initAuth();
+
+        onAuthStateChanged(auth, (user) => {
+            currentUser = user;
+            if (user) {
+                loadComments();
+            }
+        });
+
+        // Menarik Data Ucapan secara Real-Time
+        function loadComments() {
+            if (!currentUser) return;
+            const commentsRef = collection(db, 'artifacts', appId, 'public', 'data', 'comments');
+            
+            onSnapshot(commentsRef, (snapshot) => {
+                let comments = [];
+                snapshot.forEach((doc) => {
+                    comments.push({ id: doc.id, ...doc.data() });
+                });
+                
+                // Urutkan dari yang terbaru
+                comments.sort((a, b) => b.timestamp - a.timestamp);
+                
+                commentsContainer.innerHTML = ''; 
+                
+                if (comments.length === 0) {
+                    commentsContainer.innerHTML = '<p class="text-sm text-gray-500 text-center py-8">Belum ada ucapan. Jadilah yang pertama memberikan doa!</p>';
+                    return;
+                }
+
+                comments.forEach(comment => {
+                    const initial = comment.name ? comment.name.charAt(0).toUpperCase() : '?';
+                    const attendanceBadge = comment.attendance === 'Hadir' 
+                        ? '<span class="text-green-600 text-[10px] ml-1 border border-green-600 px-1 rounded-full">✓ Hadir</span>' 
+                        : '';
+                    
+                    const date = new Date(comment.timestamp || Date.now());
+                    const dateOptions = { day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute:'2-digit' };
+                    const dateString = date.toLocaleDateString('id-ID', dateOptions).replace(' pukul ', ' | ');
+
+                    const commentHTML = `
+                        <div class="bg-white/80 rounded-xl p-4 border border-[#8B5A2B]/40 shadow-sm animation-fade-in">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-8 h-8 rounded-full bg-[#8B5A2B] text-white flex items-center justify-center font-bold text-xs">${initial}</div>
+                                <div>
+                                    <p class="font-bold text-sm text-black">${comment.name} ${attendanceBadge}</p>
+                                    <p class="text-[10px] text-gray-500">${dateString}</p>
+                                </div>
+                            </div>
+                            <p class="text-sm text-black leading-relaxed whitespace-pre-line">${comment.message}</p>
+                        </div>
+                    `;
+                    commentsContainer.insertAdjacentHTML('beforeend', commentHTML);
+                });
+            }, (error) => {
+                console.error("Error fetching comments:", error);
+                commentsContainer.innerHTML = '<p class="text-sm text-red-500 text-center py-4">Gagal memuat daftar ucapan.</p>';
+            });
+        }
+
+        // Handle Mengirim Form (Simpan ke Database)
+        document.getElementById('rsvp-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            if (!currentUser) return;
+
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = 'Mengirim...';
+            submitBtn.disabled = true;
+            
+            const name = document.getElementById('rsvp-name').value;
+            const attendance = document.getElementById('rsvp-attendance').value;
+            const guests = document.getElementById('rsvp-guests').value;
+            const message = document.getElementById('rsvp-message').value;
+
+            try {
+                // Simpan ke Database
+                const commentsRef = collection(db, 'artifacts', appId, 'public', 'data', 'comments');
+                await addDoc(commentsRef, {
+                    name: name,
+                    attendance: attendance,
+                    guests: guests,
+                    message: message,
+                    timestamp: Date.now(),
+                    userId: currentUser.uid
+                });
+
+                // Generate Tautan WhatsApp
+                const waNumber = "6281234567890"; 
+                let waText = `*Konfirmasi Kehadiran Undangan Rama & Shinta*%0A%0A`;
+                waText += `Nama: *${name}*%0A`;
+                waText += `Kehadiran: *${attendance}*%0A`;
+                if (attendance === 'Hadir') { waText += `Jumlah Tamu: *${guests} Orang*%0A`; }
+                waText += `%0A*Ucapan & Doa:*%0A"${message}"%0A`;
+
+                window.open(`https://wa.me/${waNumber}?text=${waText}`, '_blank');
+
+                // Notifikasi Sukses
+                const toast = document.getElementById('toast');
+                const msg = document.getElementById('toast-msg');
+                msg.innerText = "Ucapan & Doa berhasil dikirim!";
+                toast.classList.remove('opacity-0');
+                setTimeout(() => toast.classList.add('opacity-0'), 3000);
+
+                // Reset isi form
+                this.reset();
+                document.getElementById('guest-count-container').style.display = 'block';
+
+            } catch (error) {
+                console.error("Error adding document: ", error);
+                const toast = document.getElementById('toast');
+                const msg = document.getElementById('toast-msg');
+                msg.innerText = "Gagal mengirim ucapan, coba lagi.";
+                toast.classList.remove('opacity-0');
+                setTimeout(() => toast.classList.add('opacity-0'), 3000);
+            } finally {
+                submitBtn.innerHTML = originalBtnText;
+                submitBtn.disabled = false;
+            }
         });
     </script>
 </body>

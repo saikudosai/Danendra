@@ -31,6 +31,27 @@
             overflow-x: hidden;
             -webkit-tap-highlight-color: transparent;
             overscroll-behavior-y: none;
+            /* Anti-select teks */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* Izinkan seleksi teks hanya pada form input agar RSVP bisa diketik */
+        input, textarea, select {
+            -webkit-user-select: auto;
+            -moz-user-select: auto;
+            -ms-user-select: auto;
+            user-select: auto;
+        }
+
+        /* Anti-drag gambar */
+        img {
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
         }
         
         .font-script {
@@ -1326,6 +1347,39 @@
             } finally {
                 submitBtn.innerHTML = originalBtnText;
                 submitBtn.disabled = false;
+            }
+        });
+
+        // ========================================================================
+        // KEAMANAN (ANTI COPY & ANTI INSPECT ELEMENT)
+        // Mempersulit orang untuk melihat atau menyalin source code
+        // ========================================================================
+        
+        // 1. Matikan Klik Kanan (Context Menu)
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // 2. Matikan kombinasi keyboard khusus (F12, Ctrl+U, Ctrl+Shift+I, dll)
+        document.addEventListener('keydown', event => {
+            // Cek apakah user sedang mengetik di form RSVP (izinkan copy-paste di dalam form)
+            const isTyping = ['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName);
+
+            if (
+                event.key === 'F12' || 
+                (event.ctrlKey && event.shiftKey && (event.key === 'I' || event.key === 'i')) || 
+                (event.ctrlKey && event.shiftKey && (event.key === 'J' || event.key === 'j')) || 
+                (event.ctrlKey && (event.key === 'U' || event.key === 'u')) || 
+                (event.ctrlKey && (event.key === 'S' || event.key === 's')) || 
+                (event.metaKey && event.altKey && (event.key === 'I' || event.key === 'i')) || 
+                (event.metaKey && event.altKey && (event.key === 'U' || event.key === 'u'))
+            ) {
+                event.preventDefault();
+                return false;
+            }
+
+            // Matikan Ctrl+C / Cmd+C (Copy) JIKA tidak sedang mengisi form
+            if (!isTyping && (event.ctrlKey || event.metaKey) && (event.key === 'C' || event.key === 'c')) {
+                event.preventDefault();
+                return false;
             }
         });
     </script>

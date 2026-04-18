@@ -1251,48 +1251,32 @@
         });
     </script>
 
-    <!-- FIREBASE MODULE SCRIPT (DATABASE UCAPAN) -->
+     <!-- FIREBASE MODULE SCRIPT (DATABASE UCAPAN) -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, onAuthStateChanged, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, collection, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // Setup Database
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
-
-        let currentUser = null;
-        const commentsContainer = document.getElementById('comments-container');
-
-        // Autentikasi Pengunjung (Anonim)
-        const initAuth = async () => {
-            try {
-                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                    await signInWithCustomToken(auth, __initial_auth_token);
-                } else {
-                    await signInAnonymously(auth);
-                }
-            } catch (error) {
-                console.error("Auth error", error);
-                commentsContainer.innerHTML = '<p class="text-sm text-red-500 text-center py-4">Gagal memuat ucapan (Error Koneksi).</p>';
-            }
+        // === 1. MASUKKAN KONFIGURASI FIREBASE ANDA DI SINI ===
+        // Ganti nilai-nilai di bawah ini dengan config dari Firebase Project Anda
+        const firebaseConfig = {
+          apiKey: "AIzaSyBfDsE74-_C9cGwcrKi0PsqIDvHL8DdJRU",
+          authDomain: "weddinginvt-31874.firebaseapp.com",
+          projectId: "weddinginvt-31874",
+          storageBucket: "weddinginvt-31874.firebasestorage.app",
+          messagingSenderId: "790180635583",
+          appId: "1:790180635583:web:6339ef5d36167677df370a"
         };
-        initAuth();
+        // =====================================================
 
-        onAuthStateChanged(auth, (user) => {
-            currentUser = user;
-            if (user) {
-                loadComments();
-            }
-        });
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
 
-        // Menarik Data Ucapan secara Real-Time
+        const commentsContainer = document.getElementById('comments-container');
+        const rsvpForm = document.getElementById('rsvp-form');
+
+        // --- FUNGSI MEMUAT UCAPAN ---
         function loadComments() {
-            if (!currentUser) return;
-            const commentsRef = collection(db, 'artifacts', appId, 'public', 'data', 'comments');
+            const commentsRef = collection(db, 'comments');
             
             onSnapshot(commentsRef, (snapshot) => {
                 let comments = [];
@@ -1321,7 +1305,7 @@
                     const dateString = date.toLocaleDateString('id-ID', dateOptions).replace(' pukul ', ' | ');
 
                     const commentHTML = `
-                        <div class="bg-white/80 rounded-xl p-4 border border-[#8B5A2B]/40 shadow-sm animation-fade-in">
+                        <div class="bg-white/80 rounded-xl p-4 border border-[#8B5A2B]/40 shadow-sm animation-fade-in mb-4">
                             <div class="flex items-center gap-3 mb-2">
                                 <div class="w-8 h-8 rounded-full bg-[#8B5A2B] text-white flex items-center justify-center font-bold text-xs">${initial}</div>
                                 <div>
@@ -1336,14 +1320,20 @@
                 });
             }, (error) => {
                 console.error("Error fetching comments:", error);
-                commentsContainer.innerHTML = '<p class="text-sm text-red-500 text-center py-4">Gagal memuat daftar ucapan.</p>';
+                if(error.code === 'permission-denied') {
+                    commentsContainer.innerHTML = '<p class="text-sm text-red-500 text-center py-4">Gagal memuat ucapan. Pastikan Rules Firestore Anda sudah diatur ke mode izinkan (allow read, write).</p>';
+                } else {
+                    commentsContainer.innerHTML = '<p class="text-sm text-red-500 text-center py-4">Gagal memuat daftar ucapan.</p>';
+                }
             });
         }
 
-        // Handle Mengirim Form (Simpan ke Database)
-        document.getElementById('rsvp-form').addEventListener('submit', async function(e) {
+        // Panggil saat pertama kali dimuat
+        loadComments();
+
+        // --- FUNGSI MENGIRIM UCAPAN ---
+        rsvpForm.addEventListener('submit', async function(e) {
             e.preventDefault();
-            if (!currentUser) return;
 
             const submitBtn = this.querySelector('button[type="submit"]');
             const originalBtnText = submitBtn.innerHTML;
@@ -1356,19 +1346,18 @@
             const message = document.getElementById('rsvp-message').value;
 
             try {
-                // Simpan ke Database
-                const commentsRef = collection(db, 'artifacts', appId, 'public', 'data', 'comments');
+                // Simpan ke Database Firestore Anda
+                const commentsRef = collection(db, 'comments');
                 await addDoc(commentsRef, {
                     name: name,
                     attendance: attendance,
                     guests: guests,
                     message: message,
-                    timestamp: Date.now(),
-                    userId: currentUser.uid
+                    timestamp: Date.now()
                 });
 
-                // Generate Tautan WhatsApp
-                const waNumber = "6281234567890"; 
+                // Generate Tautan WhatsApp (Sesuai nomor Anda)
+                const waNumber = "6281392514839"; 
                 let waText = `*Konfirmasi Kehadiran Undangan Rama & Shinta*%0A%0A`;
                 waText += `Nama: *${name}*%0A`;
                 waText += `Kehadiran: *${attendance}*%0A`;
@@ -1377,14 +1366,12 @@
 
                 window.open(`https://wa.me/${waNumber}?text=${waText}`, '_blank');
 
-                // Notifikasi Sukses
                 const toast = document.getElementById('toast');
                 const msg = document.getElementById('toast-msg');
                 msg.innerText = "Ucapan & Doa berhasil dikirim!";
                 toast.classList.remove('opacity-0');
                 setTimeout(() => toast.classList.add('opacity-0'), 3000);
 
-                // Reset isi form
                 this.reset();
                 document.getElementById('guest-count-container').style.display = 'block';
 
@@ -1392,7 +1379,13 @@
                 console.error("Error adding document: ", error);
                 const toast = document.getElementById('toast');
                 const msg = document.getElementById('toast-msg');
-                msg.innerText = "Gagal mengirim ucapan, coba lagi.";
+                
+                if(error.code === 'permission-denied') {
+                    msg.innerText = "Gagal! Atur Rules Firestore Anda.";
+                } else {
+                    msg.innerText = "Gagal mengirim ucapan, coba lagi.";
+                }
+                
                 toast.classList.remove('opacity-0');
                 setTimeout(() => toast.classList.add('opacity-0'), 3000);
             } finally {

@@ -115,7 +115,7 @@
 
         /* Panel Kaca Diterangkan untuk Teks Gelap */
         .glass-panel {
-            background: rgba(0, 45, 75, 0.329);
+            background: rgba(75, 51, 0, 0.329);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 4px solid rgba(255, 255, 255, 0.8); 
@@ -232,7 +232,7 @@
     <audio id="wedding-music" loop preload="auto"></audio>
 
     <!-- Tombol Musik -->
-    <button id="music-toggle" class="fixed bottom-6 right-6 z-[150] w-12 h-12 bg-white/90 backdrop-blur-md rounded-full border border-white/40 flex items-center justify-center text-white shadow-xl hidden transition-transform active:scale-90">
+    <button id="music-toggle" class="fixed bottom-6 right-6 z-[150] w-12 h-12 bg-currentColor backdrop-blur-md rounded-full border border-white/40 flex items-center justify-center text-white shadow-xl hidden transition-transform active:scale-90">
         <svg id="music-icon-play" class="w-6 h-6 music-rotate" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path></svg>
         <svg id="music-icon-pause" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"></path></svg>
     </button>
@@ -257,7 +257,7 @@
     <div id="welcome-gate" class="fixed-h-screen">
         <div class="flex flex-col items-center pt-[5vh] w-full px-4">
             <div class="mb-5 animate-pulse">
-                <img src="" class="data-ornament-flower2 w-56 md:w-72 lg:w-80 mx-auto drop-shadow-2xl" alt="Ikon Bunga Bulan">
+                <img src="" class="data-ornament-flower2 w-64 md:w-83 lg:w-92 mx-auto drop-shadow-2x1" alt="Ikon Bunga Bulan">
             </div>
             <p class="text-[10px] md:text-xs tracking-[0.4em] uppercase text-white mb-2 font-bold text-shadow-heavy">The Wedding Of</p>
         <h1 class="data-couple-name font-script text-5xl md:text-7xl text-white text-shadow-heavy"></h1>
@@ -279,9 +279,9 @@
         
         <!-- SECTION 1: HERO -->
         <section id="hero-section" class="fixed-h-screen relative flex flex-col items-center justify-start text-center px-4 overflow-hidden">
-            <div id="hero-content" class="opacity-0 flex flex-col items-center pt-[30vh] w-full">
+            <div id="hero-content" class="opacity-0 flex flex-col items-center pt-[20vh] w-full">
                 <div class="mb-5 animate-pulse">
-                    <img src="" class="data-ornament-flower2 w-56 md:w-72 lg:w-80 mx-auto drop-shadow-2xl" alt="Bulan Bunga">
+                    <img src="" class="data-ornament-flower2 w-64 md:w-83 lg:w-92 mx-auto drop-shadow-2xl" alt="Bulan Bunga">
                 </div>
                 <p class="text-[10px] md:text-xs tracking-[0.4em] uppercase text-white mb-2 font-bold text-shadow-heavy">The Wedding Of</p>
                 <h1 class="data-couple-name text-5xl md:text-7xl lg:text-8xl text-white mb-4 font-bold text-shadow-heavy leading-tight"></h1>
@@ -753,20 +753,20 @@
             countdownTarget: "June 11, 2026 08:00:00", // Waktu tujuan hitung mundur
             
             // Backgrounds, Audio & Ornaments
-            audio: "https://invite.leafitation.com/wp-content/uploads/2025/01/Magical-Fantasy-Cinematic-Background-Music-by-Dmitriy-Sevostyanov-backgroundmusic-freemusic.mp3.mp3",
-            bgVideo: "https://invite.leafitation.com/wp-content/uploads/2025/07/3D-motion-fairytale-compressed.mp4",
+            audio: "https://danendra.s3.eu-central-003.backblazeb2.com/vintage-java02.mp3",
+            bgVideo: "https://danendra.s3.eu-central-003.backblazeb2.com/vintage-java02.mp4",
             backgrounds: {
-                main: "https://invite.leafitation.com/wp-content/uploads/2025/01/NIGHT-FAIRY-TALE-DESIGN.jpg",
-                fallback: "https://invite.leafitation.com/wp-content/uploads/2025/01/NIGHT-FAIRY-TALE-FALLBACK.jpg",
-                welcomeGate: "https://invite.leafitation.com/wp-content/uploads/2024/05/fairytale-sampul.jpg"
+                main: "https://raw.githubusercontent.com/saikudosai/Danendra/2fa22ac7f33aa7bc10b9aa7bd807c704911ecfd6/theme/vintage-java02-foto/backgorund-mempelai-min.png",
+                fallback: "https://raw.githubusercontent.com/saikudosai/Danendra/2fa22ac7f33aa7bc10b9aa7bd807c704911ecfd6/theme/vintage-java02-foto/JAWA-03-FALLBACK.jpg",
+                welcomeGate: "https://raw.githubusercontent.com/saikudosai/Danendra/b4f050132b0945cc3d724a6c7602b815bf63ba8b/theme/vintage-java02-foto/backgorund-desktop-jawa-03.png"
             },
             assets: {
                 // gate & hero
-                flowerOrnament2: "https://invite.leafitation.com/wp-content/uploads/2025/01/bulan-bunga.png",
+                flowerOrnament2: "https://raw.githubusercontent.com/saikudosai/Danendra/b4f050132b0945cc3d724a6c7602b815bf63ba8b/theme/vintage-java02-foto/kembar-mayang-coklat.png",
                 // frame foto
-                flowerOrnament: "https://raw.githubusercontent.com/saikudosai/Danendra/d7361b62f6e784349a9282e607678f702de346f4/theme/fairytale-foto/bunga-ic.png",
+                flowerOrnament: "https://raw.githubusercontent.com/saikudosai/Danendra/b4f050132b0945cc3d724a6c7602b815bf63ba8b/theme/vintage-java02-foto/BUNGA-JAWA-03.png",
                 // closing
-                flowerOrnament3: "https://raw.githubusercontent.com/saikudosai/Danendra/d7361b62f6e784349a9282e607678f702de346f4/theme/fairytale-foto/bunga-ic.png"
+                flowerOrnament3: "https://raw.githubusercontent.com/saikudosai/Danendra/b4f050132b0945cc3d724a6c7602b815bf63ba8b/theme/vintage-java02-foto/BUNGA-JAWA-03.png"
             },
             
             // Mempelai

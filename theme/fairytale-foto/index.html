@@ -626,11 +626,11 @@
             <div data-aos="fade-up" data-aos-duration="1200" class="glass-panel relative overflow-hidden p-10 md:p-20 w-full rounded-b-[5rem] shadow-2xl flex flex-col justify-center items-center pb-24">
                 
                 <div class="absolute -bottom-2 -left-2 md:-bottom-4 md:-left-4 w-24 md:w-36 z-0 pointer-events-none drop-shadow-xl" data-aos="zoom-in-up" data-aos-delay="600" data-aos-duration="1000">
-                    <img src="" class="data-ornament-flower2 w-full h-auto opacity-90 transform -scale-x-100" alt="Flower Bottom Left">
+                    <img src="" class="data-ornament-flower3 w-full h-auto opacity-90 transform -scale-x-100" alt="Flower Bottom Left">
                 </div>
 
                 <div class="absolute -bottom-2 -right-2 md:-bottom-4 md:-right-4 w-24 md:w-36 z-0 pointer-events-none drop-shadow-xl" data-aos="zoom-in-up" data-aos-delay="800" data-aos-duration="1000">
-                    <img src="" class="data-ornament-flower2 w-full h-auto opacity-90 transform rotate-360" alt="Flower Bottom Right">
+                    <img src="" class="data-ornament-flower3 w-full h-auto opacity-90 transform rotate-360" alt="Flower Bottom Right">
                 </div>
 
                 <p data-aos="fade-down" data-aos-delay="200" class="text-white text-base md:text-lg mb-10 leading-relaxed max-w-sm mx-auto font-medium relative z-10">
@@ -686,10 +686,12 @@
                 welcomeGate: "https://invite.leafitation.com/wp-content/uploads/2024/05/fairytale-sampul.jpg"
             },
             assets: {
+                // gate & hero
+                flowerOrnament2: "https://invite.leafitation.com/wp-content/uploads/2025/01/bulan-bunga.png",
                 // frame foto
-                flowerOrnament: "https://invite.leafitation.com/wp-content/uploads/2024/12/bunga-fa.png",
-                // Gate, hero & closing
-                flowerOrnament2: "https://invite.leafitation.com/wp-content/uploads/2025/01/bulan-bunga.png"
+                flowerOrnament: "https://raw.githubusercontent.com/saikudosai/Danendra/d7361b62f6e784349a9282e607678f702de346f4/theme/fairytale-foto/bunga-ic.png",
+                // closing
+                flowerOrnament3: "https://raw.githubusercontent.com/saikudosai/Danendra/d7361b62f6e784349a9282e607678f702de346f4/theme/fairytale-foto/bunga-ic.png"
             },
             
             // Mempelai
@@ -813,6 +815,9 @@
                 img.src = D.assets.flowerOrnament;
             });
             document.querySelectorAll('.data-ornament-flower2').forEach(img => {
+                img.src = D.assets.flowerOrnament2;
+            });
+            document.querySelectorAll('.data-ornament-flower3').forEach(img => {
                 img.src = D.assets.flowerOrnament2;
             });
 

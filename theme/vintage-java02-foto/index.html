@@ -1159,7 +1159,7 @@
             if (bgVideo) {
                 let heroShown = false;
                 bgVideo.addEventListener('timeupdate', () => {
-                    if (!heroShown && bgVideo.duration && (bgVideo.duration - bgVideo.currentTime <= 5)) {
+                    if (!heroShown && bgVideo.duration && (bgVideo.duration - bgVideo.currentTime <= 7)) {
                         document.getElementById('hero-content').classList.remove('opacity-0');
                         document.getElementById('hero-content').style.transition = 'opacity 2s ease';
                         document.getElementById('scroll-indicator').classList.remove('opacity-0');

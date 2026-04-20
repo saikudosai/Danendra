@@ -525,8 +525,8 @@
         <section class="py-20 px-4 text-center">
             <div data-aos="zoom-in" data-aos-duration="1200" class="glass-panel p-8 md:p-12 max-w-xl mx-auto flex flex-col items-center">
                 <div id="gift-intro">
-                    <h2 data-aos="fade-down" data-aos-delay="200" class="text-3xl md:text-4xl text-white font-bold mb-8 tracking-[0.2em] uppercase">Wedding Gift</h2>
-                    <p data-aos="fade-up" data-aos-delay="400" class="text-white text-sm md:text-base leading-relaxed mb-10 px-4">
+                    <h2 data-aos="fade-down" data-aos-delay="200" class="text-3xl md:text-4xl text-black font-bold mb-8 tracking-[0.2em] uppercase">Wedding Gift</h2>
+                    <p data-aos="fade-up" data-aos-delay="400" class="text-black text-sm md:text-base leading-relaxed mb-10 px-4">
                         Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Dan jika memberi adalah ungkapan tanda kasih Anda, Anda dapat memberi kado secara cashless.
                     </p>
                     <button data-aos="zoom-in" data-aos-delay="600" onclick="showGiftDetails()" class="btn-click-here">
@@ -538,23 +538,21 @@
                 <div id="gift-details" class="gift-details-card mt-8">
                     <div class="mb-8">
                         <img id="data-gift-bank-logo" src="" alt="Bank Logo" class="h-10 mx-auto mb-4">
-                        <p class="data-gift-bank text-sm font-bold text-white mb-1"></p>
-                        <p class="text-sm font-bold text-white mb-1">No. Rekening <span class="data-gift-acc"></span></p>
-                        <p class="text-sm font-bold text-white">a.n <span class="data-gift-name text-white"></span></p>
+                        <p class="data-gift-bank text-sm font-bold text-[#8B5A2B] mb-1"></p>
+                        <p class="text-sm font-bold text-black mb-1">No. Rekening <span class="data-gift-acc"></span></p>
+                        <p class="text-sm font-bold text-black">a.n <span class="data-gift-name text-[#8B5A2B]"></span></p>
                         <button onclick="copyText(window.WEDDING_DATA.gift.accountNumber, 'Nomor Rekening')" class="mt-6 bg-[#8B5A2B] text-white px-6 py-2.5 rounded-lg text-xs font-bold flex items-center gap-2 mx-auto hover:bg-[#5c3a21] transition-colors">
                             Salin Nomor Rekening <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
                         </button>
                     </div>
                     <hr class="border-white/30 mb-8 mx-2">
                     <div class="mb-8">
-                        <div class="mb-4">
-                            <svg class="w-12 h-12 mx-auto text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 5a3 3 0 015-2.236A3 3 0 0114.83 6H16a2 2 0 110 4h-5V9a1 1 0 10-2 0v1H4a2 2 0 110-4h1.17C5.06 5.687 5 5.35 5 5zm4 1V5a1 1 0 10-1 1h1zm3 0a1 1 0 10-1-1v1h1z" clip-rule="evenodd"></path><path d="M9 11H3v5a2 2 0 002 2h4v-7zM11 18h4a2 2 0 002-2v-5h-6v7z"></path></svg>
-                        </div>
-                        <p class="text-sm font-bold text-white mb-2">Kirim Kado</p>
-                        <p class="text-sm text-white mb-2">Alamat kirim kado</p>
-                        <p class="text-sm font-bold text-white">a.n <span class="data-gift-name text-white"></span></p>
-                        <button onclick="copyText(window.WEDDING_DATA.gift.address, 'Alamat')" class="mt-6 bg-[#8B5A2B] text-white px-6 py-2.5 rounded-lg text-xs font-bold flex items-center gap-2 mx-auto hover:bg-[#5c3a21] transition-colors">
-                            Salin Alamat <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                        <img id="data-gift-bank-logo2" src="" alt="Bank Logo" class="h-10 mx-auto mb-4">
+                        <p class="data-gift-bank2 text-sm font-bold text-[#8B5A2B] mb-1"></p>
+                        <p class="text-sm font-bold text-black mb-1">No. Rekening <span class="data-gift-acc"></span></p>
+                        <p class="text-sm font-bold text-black">a.n <span class="data-gift-name text-[#8B5A2B]"></span></p>
+                        <button onclick="copyText(window.WEDDING_DATA.gift.accountNumber, 'Nomor Rekening')" class="mt-6 bg-[#8B5A2B] text-white px-6 py-2.5 rounded-lg text-xs font-bold flex items-center gap-2 mx-auto hover:bg-[#5c3a21] transition-colors">
+                            Salin Nomor Rekening <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
                         </button>
                     </div>
                 </div>
@@ -747,8 +745,8 @@
         // Silakan ubah data di bawah ini. Kode akan otomatis menyesuaikan tampilan.
         // ========================================================================
         window.WEDDING_DATA = {
-            id: "rama_shinta_vintage-java02foto", // ID unik untuk database ucapan klien ini (tanpa spasi)
-            coupleName: "Rama & Shinta", // Nama gabungan
+            id: "Aji_Mega_vintage-java02foto", // ID unik untuk database ucapan klien ini (tanpa spasi)
+            coupleName: "Aji & Mega", // Nama gabungan
             dateText: "11 . 06 . 2026", // Format teks hero
             countdownTarget: "June 11, 2026 08:00:00", // Waktu tujuan hitung mundur
             
@@ -771,97 +769,114 @@
             
             // Mempelai
             bride: {
-                nickname: "Shinta",
-                fullName: "Shinta Kencana Dewi",
-                parents: "Putri dari Bapak Thomas Laksono & Ibu Rachma Aurora",
-                igUrl: "https://instagram.com/shintakencana",
+                nickname: "Mega",
+                fullName: "Mega Nada Mufidah, S.Ak.",
+                parents: "Putri dari Bapak Abdullah & Ibu Mahmudah",
+                igUrl: "",
                 photos: [
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/ef78009a63a38204515e626d6383ab993d5110c7/groom_bridal/BRIDAL1.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/ef78009a63a38204515e626d6383ab993d5110c7/groom_bridal/BRIDAL2.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/ef78009a63a38204515e626d6383ab993d5110c7/groom_bridal/BRIDAL3.jpg"
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/bridal1.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/bridal2.jpg"
                 ]
             },
             groom: {
-                nickname: "Rama",
-                fullName: "Rama Alamsyah",
-                parents: "Putra dari Bapak James Santoso & Ibu Angelita Joyoningrat",
-                igUrl: "https://instagram.com/ramaalamsyah",
+                nickname: "Aji",
+                fullName: "M. Aji Ulul Albab",
+                parents: "Putra dari Bapak Sulastono (Alm.) & Ibu Sri Wahyuni",
+                igUrl: "",
                 photos: [
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/ef78009a63a38204515e626d6383ab993d5110c7/groom_bridal/GROOM1.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/ef78009a63a38204515e626d6383ab993d5110c7/groom_bridal/GROM2.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/ef78009a63a38204515e626d6383ab993d5110c7/groom_bridal/GROOM3.jpg"
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/groom1.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/groom2.jpg"
                 ]
             },
             
             // Detail Tanggal
-            dateDetail: { day: "11", month: "Juni", year: "2026" },
+            dateDetail: { day: "18", month: "Mei", year: "2026" },
             
             // Acara
             events: {
                 akad: {
-                    date: "Minggu, 11 Juni 2026",
+                    date: "Senin, 18 Mei 2026",
                     time: "08.00 WIB - Selesai",
-                    locationName: "Hotel Marriott Yogyakarta",
-                    address: "Jl. Ring Road Utara, Kaliwaru, Condongcatur, Kec. Depok, Yogyakarta, Daerah Istimewa Yogyakarta",
-                    mapUrl: "https://maps.app.goo.gl/z7Asx9BvxWtzepZA7"
+                    locationName: "Kediaman Mempelai Wanita",
+                    address: "JKalipucang Kulon RT 06 / RW 01 Kecamatan Welahan Kabupaten Jepara",
+                    mapUrl: "https://maps.app.goo.gl/f3iodPu6SY8GohSa7?g_st=aw"
                 },
                 resepsi: {
                     date: "Minggu, 11 Juni 2026",
-                    time: "11.00 - 14.00 WIB",
-                    locationName: "Hotel Marriott Yogyakarta",
-                    address: "Jl. Ring Road Utara, Kaliwaru, Condongcatur, Kec. Depok, Yogyakarta, Daerah Istimewa Yogyakarta",
-                    mapUrl: "https://maps.app.goo.gl/z7Asx9BvxWtzepZA7"
+                    time: "10.00 - Selesai",
+                    locationName: "Kediaman Mempelai Wanita",
+                    address: "Kalipucang Kulon RT 06 / RW 01 Kecamatan Welahan Kabupaten Jepara",
+                    mapUrl: "https://maps.app.goo.gl/f3iodPu6SY8GohSa7?g_st=aw"
                 }
             },
             
             // Kado / Rekening
             gift: {
-                bankName: "Bank BNI",
-                bankLogo: "https://invite.leafitation.com/wp-content/uploads/2024/06/bni.png",
-                accountNumber: "0967681234",
-                accountHolder: "Shinta",
-                address: "Alamat kirim kado Rama & Shinta"
+                bankName: "Bank BCA",
+                bankLogo: "https://raw.githubusercontent.com/saikudosai/Danendra/d5325c70d1b5b7cd3a9ad077fe9df1e27a65ba4b/wedding/icon%20bank/Logo%20BCA_Biru.png",
+                accountNumber: "5516061941",
+                accountHolder: "Mega Nada Mufidah",
+                address: "Alamat kirim kado Aji & Mega",
+
+                bankName2: "DANA",
+                bankLogo2: "https://raw.githubusercontent.com/saikudosai/Danendra/d5325c70d1b5b7cd3a9ad077fe9df1e27a65ba4b/wedding/icon%20bank/Logo%20BCA_Biru.png",
+                accountNumber2: "5516061941",
+                accountHolder2: "Mega Nada Mufidah",
+                address2: "Alamat kirim kado Aji & Mega"
             },
             
             // Galeri
             gallery: {
                 videoYoutube: "https://www.youtube.com/embed/ScMzIvxBSi4",
                 quoteSlider: [
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/1.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/2.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/3.jpg"
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/1.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/2.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/3.jpg"
                 ],
                 countdownBg: [
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/CD1.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/CD2.jpg"
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/cd1.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/cd2.jpg"
                 ],
                 sliders: [
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/1.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/2.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/3.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/4.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/5.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/6.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/7.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/8.jpg"
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/1.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/2.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/3.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/4.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/5.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/6.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/7.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/8.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/9.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/10.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/11.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/12.jpg"
                 ],
                 thumbnails: [
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/1.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/2.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/3.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/4.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/5.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/6.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/7.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/8.jpg"
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/1.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/2.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/3.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/4.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/5.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/6.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/7.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/8.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/9.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/10.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/11.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/12.jpg"
                 ],
                 grids: [ // Harus berisi 6 foto sesuai grid layout
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/3.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/4.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/5.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/6.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/7.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/8.jpg"
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/cd1.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/cd2.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/4.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/5.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/6.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/7.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/8.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/9.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/10.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/11.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/12.jpg"
                 ]
             }
         };

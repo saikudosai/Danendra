@@ -240,7 +240,7 @@
     <div id="white-transition"></div>
 
     <!-- Toast Notifikasi -->
-    <div id="toast" class="fixed top-5 left-1/2 -translate-x-1/2 bg-white text-white px-6 py-3 rounded-full shadow-lg transition-all duration-300 opacity-0 pointer-events-none z-[200] text-sm font-semibold flex items-center gap-2 border border-white/30">
+    <div id="toast" class="fixed top-5 left-1/2 -translate-x-1/2 bg-white text-gray-800 px-6 py-3 rounded-full shadow-lg transition-all duration-300 opacity-0 pointer-events-none z-[200] text-sm font-semibold flex items-center gap-2 border border-gray-200">
         <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
         <span id="toast-msg">Nomor disalin!</span>
     </div>
@@ -496,25 +496,45 @@
                 </div>
 
                 <!-- Grid Photo Section -->
-                <div data-aos="fade-up" data-aos-delay="800" class="w-full !mt-1.5 md:!mt-2">
+                <div class="w-full !mt-1.5 md:!mt-2">
                     <div class="grid grid-cols-12 gap-1.5 md:gap-2">
-                        <div class="col-span-12 hover:opacity-95 transition-opacity cursor-zoom-in">
+                        <!-- Baris 1-6 -->
+                        <div data-aos="zoom-in" data-aos-delay="100" class="col-span-12 hover:opacity-95 transition-opacity cursor-zoom-in">
                             <img id="grid-img-0" src="" class="w-full h-64 md:h-[450px] object-cover">
                         </div>
-                        <div class="col-span-7 hover:opacity-95 transition-opacity cursor-zoom-in">
+                        <div data-aos="fade-right" data-aos-delay="200" class="col-span-7 hover:opacity-95 transition-opacity cursor-zoom-in">
                             <img id="grid-img-1" src="" class="w-full h-40 md:h-[300px] object-cover">
                         </div>
-                        <div class="col-span-5 hover:opacity-95 transition-opacity cursor-zoom-in">
+                        <div data-aos="fade-left" data-aos-delay="300" class="col-span-5 hover:opacity-95 transition-opacity cursor-zoom-in">
                             <img id="grid-img-2" src="" class="w-full h-40 md:h-[300px] object-cover">
                         </div>
-                        <div class="col-span-6 hover:opacity-95 transition-opacity cursor-zoom-in">
+                        <div data-aos="fade-up" data-aos-delay="400" class="col-span-6 hover:opacity-95 transition-opacity cursor-zoom-in">
                             <img id="grid-img-3" src="" class="w-full h-60 md:h-[450px] object-cover">
                         </div>
-                        <div class="col-span-6 hover:opacity-95 transition-opacity cursor-zoom-in">
+                        <div data-aos="fade-up" data-aos-delay="500" class="col-span-6 hover:opacity-95 transition-opacity cursor-zoom-in">
                             <img id="grid-img-4" src="" class="w-full h-60 md:h-[450px] object-cover">
                         </div>
-                        <div class="col-span-12 hover:opacity-95 transition-opacity cursor-zoom-in">
+                        <div data-aos="zoom-in" data-aos-delay="600" class="col-span-12 hover:opacity-95 transition-opacity cursor-zoom-in">
                             <img id="grid-img-5" src="" class="w-full h-40 md:h-[250px] object-cover" style="object-position: center 20%;">
+                        </div>
+                        <!-- Baris 7-12 -->
+                        <div data-aos="zoom-in" data-aos-delay="100" class="col-span-12 hover:opacity-95 transition-opacity cursor-zoom-in">
+                            <img id="grid-img-6" src="" class="w-full h-64 md:h-[450px] object-cover">
+                        </div>
+                        <div data-aos="fade-right" data-aos-delay="200" class="col-span-7 hover:opacity-95 transition-opacity cursor-zoom-in">
+                            <img id="grid-img-7" src="" class="w-full h-40 md:h-[300px] object-cover">
+                        </div>
+                        <div data-aos="fade-left" data-aos-delay="300" class="col-span-5 hover:opacity-95 transition-opacity cursor-zoom-in">
+                            <img id="grid-img-8" src="" class="w-full h-40 md:h-[300px] object-cover">
+                        </div>
+                        <div data-aos="fade-up" data-aos-delay="400" class="col-span-6 hover:opacity-95 transition-opacity cursor-zoom-in">
+                            <img id="grid-img-9" src="" class="w-full h-60 md:h-[450px] object-cover">
+                        </div>
+                        <div data-aos="fade-up" data-aos-delay="500" class="col-span-6 hover:opacity-95 transition-opacity cursor-zoom-in">
+                            <img id="grid-img-10" src="" class="w-full h-60 md:h-[450px] object-cover">
+                        </div>
+                        <div data-aos="zoom-in" data-aos-delay="600" class="col-span-12 hover:opacity-95 transition-opacity cursor-zoom-in">
+                            <img id="grid-img-11" src="" class="w-full h-40 md:h-[250px] object-cover" style="object-position: center 20%;">
                         </div>
                     </div>
                 </div>
@@ -536,24 +556,8 @@
                 </div>
 
                 <div id="gift-details" class="gift-details-card mt-8">
-                    <div class="mb-8">
-                        <img id="data-gift-bank-logo" src="" alt="Bank Logo" class="h-10 mx-auto mb-4">
-                        <p class="data-gift-bank text-sm font-bold text-[#8B5A2B] mb-1"></p>
-                        <p class="text-sm font-bold text-black mb-1">No. Rekening <span class="data-gift-acc"></span></p>
-                        <p class="text-sm font-bold text-black">a.n <span class="data-gift-name text-[#8B5A2B]"></span></p>
-                        <button onclick="copyText(window.WEDDING_DATA.gift.accountNumber, 'Nomor Rekening')" class="mt-6 bg-[#8B5A2B] text-white px-6 py-2.5 rounded-lg text-xs font-bold flex items-center gap-2 mx-auto hover:bg-[#5c3a21] transition-colors">
-                            Salin Nomor Rekening <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                        </button>
-                    </div>
-                    <hr class="border-white/30 mb-8 mx-2">
-                    <div class="mb-8">
-                        <img id="data-gift-bank-logo2" src="" alt="Bank Logo" class="h-10 mx-auto mb-4">
-                        <p class="data-gift-bank2 text-sm font-bold text-[#8B5A2B] mb-1"></p>
-                        <p class="text-sm font-bold text-black mb-1">No. Rekening <span class="data-gift-acc"></span></p>
-                        <p class="text-sm font-bold text-black">a.n <span class="data-gift-name text-[#8B5A2B]"></span></p>
-                        <button onclick="copyText(window.WEDDING_DATA.gift.accountNumber, 'Nomor Rekening')" class="mt-6 bg-[#8B5A2B] text-white px-6 py-2.5 rounded-lg text-xs font-bold flex items-center gap-2 mx-auto hover:bg-[#5c3a21] transition-colors">
-                            Salin Nomor Rekening <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                        </button>
+                    <div id="gift-container">
+                        <!-- Diisi oleh JS secara dinamis -->
                     </div>
                 </div>
             </div>
@@ -751,7 +755,7 @@
             countdownTarget: "June 11, 2026 08:00:00", // Waktu tujuan hitung mundur
             
             // Backgrounds, Audio & Ornaments
-            audio: "https://danendra.s3.eu-central-003.backblazeb2.com/vintage-java02.mp3",
+            audio: "https://danendra.s3.eu-central-003.backblazeb2.com/music/tunggal+ika.mp3",
             bgVideo: "https://danendra.s3.eu-central-003.backblazeb2.com/vintage-java02.mp4",
             backgrounds: {
                 main: "https://raw.githubusercontent.com/saikudosai/Danendra/2fa22ac7f33aa7bc10b9aa7bd807c704911ecfd6/theme/vintage-java02-foto/backgorund-mempelai-min.png",
@@ -816,13 +820,25 @@
                 bankLogo: "https://raw.githubusercontent.com/saikudosai/Danendra/d5325c70d1b5b7cd3a9ad077fe9df1e27a65ba4b/wedding/icon%20bank/Logo%20BCA_Biru.png",
                 accountNumber: "5516061941",
                 accountHolder: "Mega Nada Mufidah",
-                address: "Alamat kirim kado Aji & Mega",
+                address: "",
 
                 bankName2: "DANA",
-                bankLogo2: "https://raw.githubusercontent.com/saikudosai/Danendra/d5325c70d1b5b7cd3a9ad077fe9df1e27a65ba4b/wedding/icon%20bank/Logo%20BCA_Biru.png",
-                accountNumber2: "5516061941",
+                bankLogo2: "https://raw.githubusercontent.com/saikudosai/Danendra/cd590898990d77dfb7b985219870e060bb34f710/wedding/icon%20bank/dana.jpg",
+                accountNumber2: "0895410233766",
                 accountHolder2: "Mega Nada Mufidah",
-                address2: "Alamat kirim kado Aji & Mega"
+                address2: "",
+
+                bankName3: "SEABANK",
+                bankLogo3: "https://raw.githubusercontent.com/saikudosai/Danendra/0281b9dfddae04049d9200780c57a8abbc180f7d/wedding/icon%20bank/seabank.jpg", // Diperbaiki ekstensi dari jpgg ke jpg
+                accountNumber3: "901344743363",
+                accountHolder3: "M Aji Ulul Albab",
+                address3: "",
+
+                bankName4: "DANA",
+                bankLogo4: "https://raw.githubusercontent.com/saikudosai/Danendra/cd590898990d77dfb7b985219870e060bb34f710/wedding/icon%20bank/dana.jpg",
+                accountNumber4: "085741410067",
+                accountHolder4: "M Aji Ulul Albab",
+                address4: ""
             },
             
             // Galeri
@@ -851,32 +867,20 @@
                     "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/11.jpg",
                     "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/12.jpg"
                 ],
-                thumbnails: [
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/1.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/2.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/3.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/4.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/5.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/6.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/7.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/8.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/9.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/10.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/11.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/12.jpg"
-                ],
-                grids: [ // Harus berisi 6 foto sesuai grid layout
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/cd1.jpg",
+                grids: [ // Harus berisi 12 foto sesuai grid layout
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/12.jpg",
                     "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/cd2.jpg",
                     "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/4.jpg",
                     "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/5.jpg",
                     "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/6.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/f28da4c5ff9f13682684dca04f6aea92bd00484b/wedding/aji%26mega/foto/landscape.jpg",
                     "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/7.jpg",
                     "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/8.jpg",
                     "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/9.jpg",
                     "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/10.jpg",
                     "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/11.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/12.jpg"
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/cd1.jpg"
+                    
                 ]
             }
         };
@@ -964,12 +968,35 @@
             document.querySelector('.data-resepsi-map').href = D.events.resepsi.mapUrl;
             
             // Gift
-            const bankLogoEl = document.getElementById('data-gift-bank-logo');
-            if(bankLogoEl) bankLogoEl.src = D.gift.bankLogo;
-            document.querySelector('.data-gift-bank').innerText = D.gift.bankName;
-            document.querySelector('.data-gift-acc').innerText = D.gift.accountNumber;
-            document.querySelectorAll('.data-gift-name').forEach(el => el.innerText = D.gift.accountHolder);
-            
+            const giftContainer = document.getElementById('gift-container');
+            if (giftContainer) {
+                giftContainer.innerHTML = '';
+                const gifts = [
+                    { name: D.gift.bankName, logo: D.gift.bankLogo, acc: D.gift.accountNumber, holder: D.gift.accountHolder },
+                    { name: D.gift.bankName2, logo: D.gift.bankLogo2, acc: D.gift.accountNumber2, holder: D.gift.accountHolder2 },
+                    { name: D.gift.bankName3, logo: D.gift.bankLogo3, acc: D.gift.accountNumber3, holder: D.gift.accountHolder3 },
+                    { name: D.gift.bankName4, logo: D.gift.bankLogo4, acc: D.gift.accountNumber4, holder: D.gift.accountHolder4 }
+                ];
+                
+                gifts.forEach((g, index) => {
+                    if (g.name && g.acc) {
+                        giftContainer.innerHTML += `
+                            <div class="mb-8">
+                                <img src="${g.logo}" alt="${g.name} Logo" class="h-10 mx-auto mb-4 object-contain">
+                                <p class="text-sm font-bold text-[#8B5A2B] mb-1">${g.name}</p>
+                                <p class="text-sm font-bold text-black mb-1">No. Rekening <span>${g.acc}</span></p>
+                                <p class="text-sm font-bold text-black">a.n <span class="text-[#8B5A2B]">${g.holder}</span></p>
+                                <button onclick="copyText('${g.acc}', 'Nomor Rekening ${g.name}')" class="mt-6 bg-[#8B5A2B] text-white px-6 py-2.5 rounded-lg text-xs font-bold flex items-center gap-2 mx-auto hover:bg-[#5c3a21] transition-colors">
+                                    Salin Nomor Rekening <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                </button>
+                            </div>
+                            ${index < gifts.length - 1 ? '<hr class="border-black/10 mb-8 mx-2">' : ''}
+                        `;
+                    }
+                });
+            }
+
+
             // Gallery Iframe
             document.getElementById('data-gallery-video').src = D.gallery.videoYoutube;
             
@@ -978,22 +1005,22 @@
                 const container = document.getElementById(containerId);
                 if(container) {
                     container.innerHTML = '';
-                    images.forEach((src, i) => {
+                    images?.forEach((src, i) => {
                         container.innerHTML += `<img data-index="${i}" src="${src}" class="${extraClasses} ${i===0 ? 'opacity-100' : 'opacity-0'}">`;
                     });
                 }
             };
 
             // Prewed Sliders
-            buildSlider('quote-slider', D.gallery.quoteSlider, 'slide-photo absolute inset-0 w-full h-full object-cover transition-opacity duration-1000');
-            buildSlider('bride-slider', D.bride.photos, 'slide-photo-bride absolute inset-0 w-full h-full object-cover transition-opacity duration-1000');
-            buildSlider('groom-slider', D.groom.photos, 'slide-photo-groom absolute inset-0 w-full h-full object-cover transition-opacity duration-1000');
+            buildSlider('quote-slider', D.gallery?.quoteSlider, 'slide-photo absolute inset-0 w-full h-full object-cover transition-opacity duration-1000');
+            buildSlider('bride-slider', D.bride?.photos, 'slide-photo-bride absolute inset-0 w-full h-full object-cover transition-opacity duration-1000');
+            buildSlider('groom-slider', D.groom?.photos, 'slide-photo-groom absolute inset-0 w-full h-full object-cover transition-opacity duration-1000');
             
             // Countdown BG
             const countdownBgContainer = document.getElementById('countdown-bg-container');
             if(countdownBgContainer) {
                 countdownBgContainer.innerHTML = '';
-                D.gallery.countdownBg.forEach((src, i) => {
+                D.gallery?.countdownBg?.forEach((src, i) => {
                     countdownBgContainer.innerHTML += `<img src="${src}" class="countdown-bg zoom-bg absolute inset-0 w-full h-full object-cover ${i===0 ? 'opacity-100 scale-110' : 'opacity-0 scale-100'}">`;
                 });
             }
@@ -1002,7 +1029,7 @@
             const mainSlider = document.getElementById('main-gallery-slider');
             if(mainSlider) {
                 mainSlider.innerHTML = '';
-                D.gallery.sliders.forEach((src, i) => {
+                D.gallery?.sliders?.forEach((src, i) => {
                     mainSlider.innerHTML += `<img data-index="${i}" src="${src}" class="main-gallery-img w-full h-[400px] md:h-[650px] flex-shrink-0 object-cover snap-center bg-[#e8ded5] cursor-zoom-in" onclick="openLightbox(window.WEDDING_DATA.gallery.sliders, ${i})">`;
                 });
             }
@@ -1011,14 +1038,14 @@
             const thumbSlider = document.getElementById('thumbnail-slider');
             if(thumbSlider) {
                 thumbSlider.innerHTML = '';
-                D.gallery.thumbnails.forEach((src, i) => {
+                D.gallery?.thumbnails?.forEach((src, i) => {
                     const borderClass = i === 0 ? 'brightness-100 border-2 border-white' : 'brightness-50 border-2 border-transparent';
                     thumbSlider.innerHTML += `<img data-index="${i}" src="${src}" class="gallery-thumbnail w-20 h-24 md:w-24 md:h-32 flex-shrink-0 object-cover cursor-pointer snap-center transition-all duration-300 ${borderClass}">`;
                 });
             }
 
             // Grid Photos
-            D.gallery.grids.forEach((src, i) => {
+            D.gallery?.grids?.forEach((src, i) => {
                 const img = document.getElementById(`grid-img-${i}`);
                 if(img) {
                     img.src = src;
@@ -1309,9 +1336,10 @@
                 };
 
                 const updateThumbStyles = (activeIndex) => {
-                    const origIndex = activeIndex % window.WEDDING_DATA.gallery.thumbnails.length;
+                    const thumbCount = window.WEDDING_DATA.gallery?.thumbnails?.length || 1;
+                    const origIndex = activeIndex % thumbCount;
                     Array.from(thumbSlider.children).forEach((thumb, i) => {
-                        if (i % window.WEDDING_DATA.gallery.thumbnails.length === origIndex) {
+                        if (i % thumbCount === origIndex) {
                             thumb.classList.replace('brightness-50', 'brightness-100');
                             thumb.classList.replace('border-transparent', 'border-white');
                         } else {

@@ -843,7 +843,7 @@
             
             // Galeri
             gallery: {
-                videoYoutube: "https://www.youtube.com/embed/HWbUD-10rBY?si=7l6WbYHcfI9FkJ6y",
+                videoYoutube: "https://www.youtube.com/embed/zzis8mCXimk?si=j2Ec9Zjthq0XOPqk",
                 quoteSlider: [
                     "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/1.jpg",
                     "https://raw.githubusercontent.com/saikudosai/Danendra/8d92476e344a5154b99137a9ba9e9c51da62f26e/wedding/aji%26mega/foto/2.jpg",
@@ -1014,7 +1014,12 @@
 
 
             // Gallery Iframe
-            document.getElementById('data-gallery-video').src = D.gallery.videoYoutube;
+            let ytUrl = D.gallery.videoYoutube;
+            if (ytUrl) {
+                // Tambahkan parameter enablejsapi=1 agar interaksi bisa dikontrol via JS
+                ytUrl += (ytUrl.includes('?') ? '&' : '?') + 'enablejsapi=1';
+                document.getElementById('data-gallery-video').src = ytUrl;
+            }
             
             // --- BUILD DYNAMIC SLIDERS ---
             const buildSlider = (containerId, images, extraClasses) => {
@@ -1073,6 +1078,29 @@
         populateWeddingData();
         // ---------------------------------------------
 
+        // --- YOUTUBE IFRAME API SETUP ---
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var ytPlayer;
+        window.onYouTubeIframeAPIReady = function() {
+            ytPlayer = new YT.Player('data-gallery-video', {
+                events: {
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        };
+
+        function onPlayerStateChange(event) {
+            // Jika video mulai diputar (State 1 = PLAYING)
+            if (event.data == YT.PlayerState.PLAYING) {
+                if (typeof window.pauseBackgroundMusic === 'function') {
+                    window.pauseBackgroundMusic();
+                }
+            }
+        }
 
         function updateVh() {
             let vh = window.innerHeight * 0.01;
@@ -1201,6 +1229,17 @@
             const musicToggle = document.getElementById('music-toggle');
             
             let isPlaying = false;
+
+            // Ekspos fungsi pause agar bisa dipanggil dari luar (oleh API YouTube)
+            window.pauseBackgroundMusic = function() {
+                if (isPlaying) {
+                    weddingMusic.pause();
+                    document.getElementById('music-icon-play').classList.add('hidden');
+                    document.getElementById('music-icon-pause').classList.remove('hidden');
+                    isPlaying = false;
+                }
+            };
+
             musicToggle.addEventListener('click', () => {
                 if (isPlaying) {
                     weddingMusic.pause();

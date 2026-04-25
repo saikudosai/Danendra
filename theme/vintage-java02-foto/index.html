@@ -240,7 +240,7 @@
     <div id="white-transition"></div>
 
     <!-- Toast Notifikasi -->
-    <div id="toast" class="fixed top-5 left-1/2 -translate-x-1/2 bg-white text-white px-6 py-3 rounded-full shadow-lg transition-all duration-300 opacity-0 pointer-events-none z-[200] text-sm font-semibold flex items-center gap-2 border border-white/30">
+    <div id="toast" class="fixed top-5 left-1/2 -translate-x-1/2 bg-white text-gray-800 px-6 py-3 rounded-full shadow-lg transition-all duration-300 opacity-0 pointer-events-none z-[200] text-sm font-semibold flex items-center gap-2 border border-gray-200">
         <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
         <span id="toast-msg">Nomor disalin!</span>
     </div>
@@ -264,7 +264,7 @@
         </div>
             <div class="mb-6 text-center">
                 <p class="text-xs md:text-sm text-white mb-2 font-medium text-shadow-heavy">Kepada Yth. Bapak/Ibu/Saudara/i</p>
-                <p class="font-bold text-lg md:text-xl text-white border-b-2 border-white inline-block pb-1 tracking-wider px-2 text-shadow-heavy">Tamu Undangan</p>
+                <p id="guest-name" class="font-bold text-lg md:text-xl text-white border-b-2 border-white inline-block pb-1 tracking-wider px-2 text-shadow-heavy">Tamu Undangan</p>
             </div>
             <button id="btn-buka" class="btn-white px-10 py-3 md:px-12 md:py-4 rounded-full tracking-widest flex items-center gap-3 shadow-2xl cursor-pointer uppercase transition-transform active:scale-95 text-sm md:text-base font-bold">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76"></path></svg>
@@ -328,47 +328,49 @@
                 <div data-aos="fade-right" data-aos-delay="400" class="flex flex-col items-center relative w-full">
                     
                     <!-- MEMPELAI WANITA -->
-                    <div class="relative w-[240px] h-[320px] md:w-[280px] md:h-[380px] mx-auto mb-10 mt-2">
-                        <div class="absolute top-0 -left-4 md:-left-6 w-20 md:w-24 z-0 pointer-events-none drop-shadow-md opacity-90">
-                            <img src="" class="data-ornament-flower w-full h-auto" alt="Flower Behind">
-                        </div>
-                        <div id="bride-slider" class="relative w-full h-full rounded-full border-[3px] border-white shadow-[10px_8px_12px_rgba(0,0,0,0.55)] overflow-hidden z-10 bg-[#e8ded5]">
-                            <!-- Diisi oleh JS -->
-                        </div>
-                        <div class="absolute -bottom-4 -right-4 md:-right-6 w-24 md:w-28 z-20 pointer-events-none drop-shadow-xl transform rotate-180">
-                            <img src="" class="data-ornament-flower w-full h-auto" alt="Flower Front">
-                        </div>
+                   <div class="relative w-[240px] h-[320px] md:w-[280px] md:h-[380px] mx-auto mb-10 mt-2">
+                    <div class="absolute top-0 -left-4 md:-left-6 w-20 md:w-24 z-0 pointer-events-none drop-shadow-md opacity-90">
+                        <img src="" class="data-ornament-flower w-full h-auto" alt="Flower Behind">
                     </div>
-                    
-                    <h3 class="data-bride-nick font-script text-7xl md:text-8xl text-white mb-1 relative z-10"></h3>
-                    <h4 class="data-bride-full text-xl md:text-2xl font-bold text-white tracking-wide relative z-10"></h4>
-                    <p class="data-bride-parents text-xs md:text-sm text-white mt-4 leading-relaxed relative z-10"></p>
-                    <a href="#" target="_blank" class="data-bride-ig mt-6 hover:scale-110 transition-transform text-white hover:text-[#5c3a21] relative z-10">
-                        <svg class="w-6 h-6 md:w-7 md:h-7 drop-shadow-md" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                    </a>
+                    <div id="bride-slider" class="relative w-full h-full rounded-full border-[3px] border-white shadow-[10px_8px_12px_rgba(0,0,0,0.55)] overflow-hidden z-10 bg-[#e8ded5]">
+                        <!-- Diisi oleh JS -->
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 md:-right-6 w-24 md:w-28 z-20 pointer-events-none drop-shadow-xl transform rotate-180">
+                        <img src="" class="data-ornament-flower w-full h-auto" alt="Flower Front">
+                    </div>
+                </div>
+                
+                <h3 class="data-bride-nick font-script text-7xl md:text-8xl text-white mb-1 relative z-10"></h3>
+                <h4 class="data-bride-full text-xl md:text-2xl font-bold text-white tracking-wide relative z-10"></h4>
+                <p class="data-bride-parents text-xs md:text-sm text-white mt-4 leading-relaxed relative z-10"></p>
+                <a href="#" target="_blank" class="data-bride-ig mt-6 hover:scale-110 transition-transform text-white hover:text-[#5c3a21] relative z-10">
+                    <svg class="w-6 h-6 md:w-7 md:h-7 drop-shadow-md" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                </a>
+ 
                 </div>
                 <div data-aos="zoom-in" data-aos-delay="600" class="text-5xl md:text-6xl font-script text-white py-2 relative z-10">&</div>
                 <div data-aos="fade-left" data-aos-delay="800" class="flex flex-col items-center relative w-full">
-                    
-                    <!-- MEMPELAI PRIA -->
-                    <div class="relative w-[240px] h-[320px] md:w-[280px] md:h-[380px] mx-auto mb-10 mt-2">
-                        <div class="absolute top-0 -right-4 md:-right-6 w-20 md:w-24 z-0 pointer-events-none drop-shadow-md opacity-90 transform -scale-x-100">
-                            <img src="" class="data-ornament-flower w-full h-auto" alt="Flower Behind">
-                        </div>
-                        <div id="groom-slider" class="relative w-full h-full rounded-full border-[3px] border-white shadow-[10px_8px_12px_rgba(0,0,0,0.55)] overflow-hidden z-10 bg-[#e8ded5]">
-                            <!-- Diisi oleh JS -->
-                        </div>
-                        <div class="absolute -bottom-4 -left-4 md:-left-6 w-24 md:w-28 z-20 pointer-events-none drop-shadow-xl transform rotate-180 -scale-x-100">
-                            <img src="" class="data-ornament-flower w-full h-auto" alt="Flower Front">
-                        </div>
+                   
+                   <!-- MEMPELAI PRIA -->
+                   <div class="relative w-[240px] h-[320px] md:w-[280px] md:h-[380px] mx-auto mb-10 mt-2">
+                    <div class="absolute top-0 -right-4 md:-right-6 w-20 md:w-24 z-0 pointer-events-none drop-shadow-md opacity-90 transform -scale-x-100">
+                        <img src="" class="data-ornament-flower w-full h-auto" alt="Flower Behind">
                     </div>
+                    <div id="groom-slider" class="relative w-full h-full rounded-full border-[3px] border-white shadow-[10px_8px_12px_rgba(0,0,0,0.55)] overflow-hidden z-10 bg-[#e8ded5]">
+                        <!-- Diisi oleh JS -->
+                    </div>
+                    <div class="absolute -bottom-4 -left-4 md:-left-6 w-24 md:w-28 z-20 pointer-events-none drop-shadow-xl transform rotate-180 -scale-x-100">
+                        <img src="" class="data-ornament-flower w-full h-auto" alt="Flower Front">
+                    </div>
+                </div>
 
-                    <h3 class="data-groom-nick font-script text-7xl md:text-8xl text-white mb-1 relative z-10"></h3>
-                    <h4 class="data-groom-full text-xl md:text-2xl font-bold text-white tracking-wide relative z-10"></h4>
-                    <p class="data-groom-parents text-xs md:text-sm text-white mt-4 leading-relaxed relative z-10"></p>
-                    <a href="#" target="_blank" class="data-groom-ig mt-6 hover:scale-110 transition-transform text-white hover:text-[#5c3a21] relative z-10">
-                        <svg class="w-6 h-6 md:w-7 md:h-7 drop-shadow-md" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-                    </a>
+                <h3 class="data-groom-nick font-script text-7xl md:text-8xl text-white mb-1 relative z-10"></h3>
+                <h4 class="data-groom-full text-xl md:text-2xl font-bold text-white tracking-wide relative z-10"></h4>
+                <p class="data-groom-parents text-xs md:text-sm text-white mt-4 leading-relaxed relative z-10"></p>
+                <a href="#" target="_blank" class="data-groom-ig mt-6 hover:scale-110 transition-transform text-white hover:text-[#5c3a21] relative z-10">
+                    <svg class="w-6 h-6 md:w-7 md:h-7 drop-shadow-md" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                </a> 
+                   
                 </div>
             </div>
         </section>
@@ -496,25 +498,45 @@
                 </div>
 
                 <!-- Grid Photo Section -->
-                <div data-aos="fade-up" data-aos-delay="800" class="w-full !mt-1.5 md:!mt-2">
+                <div class="w-full !mt-1.5 md:!mt-2">
                     <div class="grid grid-cols-12 gap-1.5 md:gap-2">
-                        <div class="col-span-12 hover:opacity-95 transition-opacity cursor-zoom-in">
+                        <!-- Baris 1-6 (PENTING: Jangan ubah URL foto di HTML ini. Ubah di bagian WEDDING_DATA -> gallery -> grids di paling bawah) -->
+                        <div data-aos="zoom-in" data-aos-delay="100" class="col-span-12 hover:opacity-95 transition-opacity cursor-zoom-in">
                             <img id="grid-img-0" src="" class="w-full h-64 md:h-[450px] object-cover">
                         </div>
-                        <div class="col-span-7 hover:opacity-95 transition-opacity cursor-zoom-in">
+                        <div data-aos="fade-right" data-aos-delay="200" class="col-span-7 hover:opacity-95 transition-opacity cursor-zoom-in">
                             <img id="grid-img-1" src="" class="w-full h-40 md:h-[300px] object-cover">
                         </div>
-                        <div class="col-span-5 hover:opacity-95 transition-opacity cursor-zoom-in">
+                        <div data-aos="fade-left" data-aos-delay="300" class="col-span-5 hover:opacity-95 transition-opacity cursor-zoom-in">
                             <img id="grid-img-2" src="" class="w-full h-40 md:h-[300px] object-cover">
                         </div>
-                        <div class="col-span-6 hover:opacity-95 transition-opacity cursor-zoom-in">
+                        <div data-aos="fade-up" data-aos-delay="400" class="col-span-6 hover:opacity-95 transition-opacity cursor-zoom-in">
                             <img id="grid-img-3" src="" class="w-full h-60 md:h-[450px] object-cover">
                         </div>
-                        <div class="col-span-6 hover:opacity-95 transition-opacity cursor-zoom-in">
+                        <div data-aos="fade-up" data-aos-delay="500" class="col-span-6 hover:opacity-95 transition-opacity cursor-zoom-in">
                             <img id="grid-img-4" src="" class="w-full h-60 md:h-[450px] object-cover">
                         </div>
-                        <div class="col-span-12 hover:opacity-95 transition-opacity cursor-zoom-in">
+                        <div data-aos="zoom-in" data-aos-delay="600" class="col-span-12 hover:opacity-95 transition-opacity cursor-zoom-in">
                             <img id="grid-img-5" src="" class="w-full h-40 md:h-[250px] object-cover" style="object-position: center 20%;">
+                        </div>
+                        <!-- Baris 7-12 (PENTING: Jangan ubah URL foto di HTML ini. Ubah di bagian WEDDING_DATA -> gallery -> grids di paling bawah) -->
+                        <div data-aos="zoom-in" data-aos-delay="100" class="col-span-12 hover:opacity-95 transition-opacity cursor-zoom-in">
+                            <img id="grid-img-6" src="" class="w-full h-64 md:h-[450px] object-cover">
+                        </div>
+                        <div data-aos="fade-right" data-aos-delay="200" class="col-span-7 hover:opacity-95 transition-opacity cursor-zoom-in">
+                            <img id="grid-img-7" src="" class="w-full h-40 md:h-[300px] object-cover">
+                        </div>
+                        <div data-aos="fade-left" data-aos-delay="300" class="col-span-5 hover:opacity-95 transition-opacity cursor-zoom-in">
+                            <img id="grid-img-8" src="" class="w-full h-40 md:h-[300px] object-cover">
+                        </div>
+                        <div data-aos="fade-up" data-aos-delay="400" class="col-span-6 hover:opacity-95 transition-opacity cursor-zoom-in">
+                            <img id="grid-img-9" src="" class="w-full h-60 md:h-[450px] object-cover">
+                        </div>
+                        <div data-aos="fade-up" data-aos-delay="500" class="col-span-6 hover:opacity-95 transition-opacity cursor-zoom-in">
+                            <img id="grid-img-10" src="" class="w-full h-60 md:h-[450px] object-cover">
+                        </div>
+                        <div data-aos="zoom-in" data-aos-delay="600" class="col-span-12 hover:opacity-95 transition-opacity cursor-zoom-in">
+                            <img id="grid-img-11" src="" class="w-full h-64 md:h-[450px] object-cover" style="object-position: center 20%;">
                         </div>
                     </div>
                 </div>
@@ -525,8 +547,8 @@
         <section class="py-20 px-4 text-center">
             <div data-aos="zoom-in" data-aos-duration="1200" class="glass-panel p-8 md:p-12 max-w-xl mx-auto flex flex-col items-center">
                 <div id="gift-intro">
-                    <h2 data-aos="fade-down" data-aos-delay="200" class="text-3xl md:text-4xl text-white font-bold mb-8 tracking-[0.2em] uppercase">Wedding Gift</h2>
-                    <p data-aos="fade-up" data-aos-delay="400" class="text-white text-sm md:text-base leading-relaxed mb-10 px-4">
+                    <h2 data-aos="fade-down" data-aos-delay="200" class="text-3xl md:text-4xl text-black font-bold mb-8 tracking-[0.2em] uppercase">Wedding Gift</h2>
+                    <p data-aos="fade-up" data-aos-delay="400" class="text-black text-sm md:text-base leading-relaxed mb-10 px-4">
                         Doa restu Anda merupakan karunia yang sangat berarti bagi kami. Dan jika memberi adalah ungkapan tanda kasih Anda, Anda dapat memberi kado secara cashless.
                     </p>
                     <button data-aos="zoom-in" data-aos-delay="600" onclick="showGiftDetails()" class="btn-click-here">
@@ -536,26 +558,8 @@
                 </div>
 
                 <div id="gift-details" class="gift-details-card mt-8">
-                    <div class="mb-8">
-                        <img id="data-gift-bank-logo" src="" alt="Bank Logo" class="h-10 mx-auto mb-4">
-                        <p class="data-gift-bank text-sm font-bold text-white mb-1"></p>
-                        <p class="text-sm font-bold text-white mb-1">No. Rekening <span class="data-gift-acc"></span></p>
-                        <p class="text-sm font-bold text-white">a.n <span class="data-gift-name text-white"></span></p>
-                        <button onclick="copyText(window.WEDDING_DATA.gift.accountNumber, 'Nomor Rekening')" class="mt-6 bg-[#8B5A2B] text-white px-6 py-2.5 rounded-lg text-xs font-bold flex items-center gap-2 mx-auto hover:bg-[#5c3a21] transition-colors">
-                            Salin Nomor Rekening <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                        </button>
-                    </div>
-                    <hr class="border-white/30 mb-8 mx-2">
-                    <div class="mb-8">
-                        <div class="mb-4">
-                            <svg class="w-12 h-12 mx-auto text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 5a3 3 0 015-2.236A3 3 0 0114.83 6H16a2 2 0 110 4h-5V9a1 1 0 10-2 0v1H4a2 2 0 110-4h1.17C5.06 5.687 5 5.35 5 5zm4 1V5a1 1 0 10-1 1h1zm3 0a1 1 0 10-1-1v1h1z" clip-rule="evenodd"></path><path d="M9 11H3v5a2 2 0 002 2h4v-7zM11 18h4a2 2 0 002-2v-5h-6v7z"></path></svg>
-                        </div>
-                        <p class="text-sm font-bold text-white mb-2">Kirim Kado</p>
-                        <p class="text-sm text-white mb-2">Alamat kirim kado</p>
-                        <p class="text-sm font-bold text-white">a.n <span class="data-gift-name text-white"></span></p>
-                        <button onclick="copyText(window.WEDDING_DATA.gift.address, 'Alamat')" class="mt-6 bg-[#8B5A2B] text-white px-6 py-2.5 rounded-lg text-xs font-bold flex items-center gap-2 mx-auto hover:bg-[#5c3a21] transition-colors">
-                            Salin Alamat <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
-                        </button>
+                    <div id="gift-container">
+                        <!-- Diisi oleh JS secara dinamis -->
                     </div>
                 </div>
             </div>
@@ -747,10 +751,10 @@
         // Silakan ubah data di bawah ini. Kode akan otomatis menyesuaikan tampilan.
         // ========================================================================
         window.WEDDING_DATA = {
-            id: "rama_shinta_vintage-java02foto", // ID unik untuk database ucapan klien ini (tanpa spasi)
+            id: "Rama_Shinta_vintage-java02foto", // ID unik untuk database ucapan klien ini (tanpa spasi)
             coupleName: "Rama & Shinta", // Nama gabungan
-            dateText: "11 . 06 . 2026", // Format teks hero
-            countdownTarget: "June 11, 2026 08:00:00", // Waktu tujuan hitung mundur
+            dateText: "18 . 05 . 2027", // Format teks hero
+            countdownTarget: "May 18, 2027 08:00:00", // Waktu tujuan hitung mundur
             
             // Backgrounds, Audio & Ornaments
             audio: "https://danendra.s3.eu-central-003.backblazeb2.com/vintage-java02.mp3",
@@ -758,7 +762,7 @@
             backgrounds: {
                 main: "https://raw.githubusercontent.com/saikudosai/Danendra/2fa22ac7f33aa7bc10b9aa7bd807c704911ecfd6/theme/vintage-java02-foto/backgorund-mempelai-min.png",
                 fallback: "https://raw.githubusercontent.com/saikudosai/Danendra/2fa22ac7f33aa7bc10b9aa7bd807c704911ecfd6/theme/vintage-java02-foto/JAWA-03-FALLBACK.jpg",
-                welcomeGate: "https://raw.githubusercontent.com/saikudosai/Danendra/b4f050132b0945cc3d724a6c7602b815bf63ba8b/theme/vintage-java02-foto/backgorund-desktop-jawa-03.png"
+                welcoShintate: "https://raw.githubusercontent.com/saikudosai/Danendra/b4f050132b0945cc3d724a6c7602b815bf63ba8b/theme/vintage-java02-foto/backgorund-desktop-jawa-03.png"
             },
             assets: {
                 // gate & hero
@@ -774,94 +778,129 @@
                 nickname: "Shinta",
                 fullName: "Shinta Kencana Dewi",
                 parents: "Putri dari Bapak Thomas Laksono & Ibu Rachma Aurora",
-                igUrl: "https://instagram.com/shintakencana",
+                igUrl: "#",
                 photos: [
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/ef78009a63a38204515e626d6383ab993d5110c7/groom_bridal/BRIDAL1.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/ef78009a63a38204515e626d6383ab993d5110c7/groom_bridal/BRIDAL2.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/ef78009a63a38204515e626d6383ab993d5110c7/groom_bridal/BRIDAL3.jpg"
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/BRIDAL1.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/BRIDAL2.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/BRIDAL3.jpg"
                 ]
             },
             groom: {
                 nickname: "Rama",
                 fullName: "Rama Alamsyah",
                 parents: "Putra dari Bapak James Santoso & Ibu Angelita Joyoningrat",
-                igUrl: "https://instagram.com/ramaalamsyah",
+                igUrl: "#",
                 photos: [
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/ef78009a63a38204515e626d6383ab993d5110c7/groom_bridal/GROOM1.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/ef78009a63a38204515e626d6383ab993d5110c7/groom_bridal/GROM2.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/ef78009a63a38204515e626d6383ab993d5110c7/groom_bridal/GROOM3.jpg"
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/GROOM1.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/GROOM2.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/GROOM3.jpg"
                 ]
             },
             
             // Detail Tanggal
-            dateDetail: { day: "11", month: "Juni", year: "2026" },
+            dateDetail: { day: "18", month: "Mei", year: "2027" },
             
             // Acara
             events: {
                 akad: {
-                    date: "Minggu, 11 Juni 2026",
+                    date: "Senin, 18 Mei 2027",
                     time: "08.00 WIB - Selesai",
                     locationName: "Hotel Marriott Yogyakarta",
-                    address: "Jl. Ring Road Utara, Kaliwaru, Condongcatur, Kec. Depok, Yogyakarta, Daerah Istimewa Yogyakarta",
-                    mapUrl: "https://maps.app.goo.gl/z7Asx9BvxWtzepZA7"
+                    address: "Jl. Ring Road Utara, Kaliwaru, Condongcatur, Yogyakarta",
+                    mapUrl: "https://maps.app.goo.gl/f3iodPu6SY8GohSa7?g_st=aw"
                 },
                 resepsi: {
-                    date: "Minggu, 11 Juni 2026",
-                    time: "11.00 - 14.00 WIB",
+                    date: "Senin, 18 Mei 2027",
+                    time: "10.00 - Selesai",
                     locationName: "Hotel Marriott Yogyakarta",
-                    address: "Jl. Ring Road Utara, Kaliwaru, Condongcatur, Kec. Depok, Yogyakarta, Daerah Istimewa Yogyakarta",
-                    mapUrl: "https://maps.app.goo.gl/z7Asx9BvxWtzepZA7"
+                    address: "Jl. Ring Road Utara, Kaliwaru, Condongcatur, Yogyakarta",
+                    mapUrl: "https://maps.app.goo.gl/f3iodPu6SY8GohSa7?g_st=aw"
                 }
             },
             
             // Kado / Rekening
             gift: {
-                bankName: "Bank BNI",
-                bankLogo: "https://invite.leafitation.com/wp-content/uploads/2024/06/bni.png",
-                accountNumber: "0967681234",
-                accountHolder: "Shinta",
-                address: "Alamat kirim kado Rama & Shinta"
+                bankName: "Bank BCA",
+                bankLogo: "https://raw.githubusercontent.com/saikudosai/Danendra/d5325c70d1b5b7cd3a9ad077fe9df1e27a65ba4b/wedding/icon%20bank/Logo%20BCA_Biru.png",
+                accountNumber: "12345678",
+                accountHolder: "Shinta Nada Mufidah",
+                address: "",
+
+                bankName2: "DANA",
+                bankLogo2: "https://raw.githubusercontent.com/saikudosai/Danendra/cd590898990d77dfb7b985219870e060bb34f710/wedding/icon%20bank/dana.jpg",
+                accountNumber2: "12345678",
+                accountHolder2: "Shinta Nada Mufidah",
+                address2: "",
+
+                bankName3: "SEABANK",
+                bankLogo3: "https://raw.githubusercontent.com/saikudosai/Danendra/0281b9dfddae04049d9200780c57a8abbc180f7d/wedding/icon%20bank/seabank.jpg", // Diperbaiki ekstensi dari jpgg ke jpg
+                accountNumber3: "12345678",
+                accountHolder3: "M Rama Ulul Albab",
+                address3: "",
+
+                bankName4: "DANA",
+                bankLogo4: "https://raw.githubusercontent.com/saikudosai/Danendra/cd590898990d77dfb7b985219870e060bb34f710/wedding/icon%20bank/dana.jpg",
+                accountNumber4: "12345678",
+                accountHolder4: "M Rama Ulul Albab",
+                address4: ""
             },
             
             // Galeri
             gallery: {
-                videoYoutube: "https://www.youtube.com/embed/ScMzIvxBSi4",
+                videoYoutube: "https://www.youtube.com/embed/zzis8mCXimk?si=j2Ec9Zjthq0XOPqk",
                 quoteSlider: [
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/1.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/2.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/3.jpg"
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/1.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/2.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/3.jpg"
                 ],
                 countdownBg: [
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/CD1.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/CD2.jpg"
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/CD1.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/CD2.jpg"
                 ],
                 sliders: [
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/1.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/2.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/3.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/4.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/5.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/6.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/7.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/8.jpg"
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/1.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/2.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/3.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/4.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/5.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/6.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/7.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/8.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/9.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/10.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/11.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/12.jpg"
                 ],
                 thumbnails: [
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/1.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/2.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/3.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/4.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/5.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/6.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/7.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/8.jpg"
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/1.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/2.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/3.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/4.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/5.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/6.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/7.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/8.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/9.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/10.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/11.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/12.jpg"
                 ],
-                grids: [ // Harus berisi 6 foto sesuai grid layout
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/3.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/4.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/5.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/6.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/7.jpg",
-                    "https://raw.githubusercontent.com/saikudosai/Danendra/4b6e780748a418b3d29b052938f189cc43f70fbe/groom_bridal/8.jpg"
+                
+                // UBAH URUTAN FOTO GRID HANYA PADA BAGIAN BAWAH INI:
+                // (Foto pertama (index 0) akan mengisi grid paling atas, dst)
+                grids: [ // Harus berisi 12 foto sesuai grid layout
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/1.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/2.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/3.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/4.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/5.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/6.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/7.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/8.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/9.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/10.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/11.jpg",
+                    "https://raw.githubusercontent.com/saikudosai/Danendra/b44d7e1f7c25c857095251eadc75943f16d2d8bf/groom_bridal/12.jpg"
                 ]
             }
         };
@@ -883,7 +922,7 @@
             // Backgrounds
             document.getElementById('bg-design').style.backgroundImage = `url('${D.backgrounds.main}')`;
             document.getElementById('bg-fallback').style.backgroundImage = `url('${D.backgrounds.fallback}')`;
-            document.getElementById('welcome-gate').style.backgroundImage = `url('${D.backgrounds.welcomeGate}')`;
+            document.getElementById('welcome-gate').style.backgroundImage = `url('${D.backgrounds.welcoShintate}')`;
 
             // Assets (Ornaments)
             document.querySelectorAll('.data-ornament-flower').forEach(img => {
@@ -949,36 +988,64 @@
             document.querySelector('.data-resepsi-map').href = D.events.resepsi.mapUrl;
             
             // Gift
-            const bankLogoEl = document.getElementById('data-gift-bank-logo');
-            if(bankLogoEl) bankLogoEl.src = D.gift.bankLogo;
-            document.querySelector('.data-gift-bank').innerText = D.gift.bankName;
-            document.querySelector('.data-gift-acc').innerText = D.gift.accountNumber;
-            document.querySelectorAll('.data-gift-name').forEach(el => el.innerText = D.gift.accountHolder);
-            
+            const giftContainer = document.getElementById('gift-container');
+            if (giftContainer) {
+                giftContainer.innerHTML = '';
+                const gifts = [
+                    { name: D.gift.bankName, logo: D.gift.bankLogo, acc: D.gift.accountNumber, holder: D.gift.accountHolder },
+                    { name: D.gift.bankName2, logo: D.gift.bankLogo2, acc: D.gift.accountNumber2, holder: D.gift.accountHolder2 },
+                    { name: D.gift.bankName3, logo: D.gift.bankLogo3, acc: D.gift.accountNumber3, holder: D.gift.accountHolder3 },
+                    { name: D.gift.bankName4, logo: D.gift.bankLogo4, acc: D.gift.accountNumber4, holder: D.gift.accountHolder4 }
+                ];
+                
+                gifts.forEach((g, index) => {
+                    if (g.name && g.acc) {
+                        giftContainer.innerHTML += `
+                            <div class="mb-8">
+                                <img src="${g.logo}" alt="${g.name} Logo" class="h-10 mx-auto mb-4 object-contain">
+                                <p class="text-sm font-bold text-[#8B5A2B] mb-1">${g.name}</p>
+                                <p class="text-sm font-bold text-black mb-1">No. Rekening <span>${g.acc}</span></p>
+                                <p class="text-sm font-bold text-black">a.n <span class="text-[#8B5A2B]">${g.holder}</span></p>
+                                <button onclick="copyText('${g.acc}', 'Nomor Rekening ${g.name}')" class="mt-6 bg-[#8B5A2B] text-white px-6 py-2.5 rounded-lg text-xs font-bold flex items-center gap-2 mx-auto hover:bg-[#5c3a21] transition-colors">
+                                    Salin Nomor Rekening <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                                </button>
+                            </div>
+                            ${index < gifts.length - 1 ? '<hr class="border-black/10 mb-8 mx-2">' : ''}
+                        `;
+                    }
+                });
+            }
+
+
             // Gallery Iframe
-            document.getElementById('data-gallery-video').src = D.gallery.videoYoutube;
+            let ytUrl = D.gallery.videoYoutube;
+            if (ytUrl) {
+                // Tambahkan parameter enablejsapi=1 agar interaksi bisa dikontrol via JS
+                ytUrl += (ytUrl.includes('?') ? '&' : '?') + 'enablejsapi=1';
+                document.getElementById('data-gallery-video').src = ytUrl;
+            }
             
             // --- BUILD DYNAMIC SLIDERS ---
             const buildSlider = (containerId, images, extraClasses) => {
                 const container = document.getElementById(containerId);
                 if(container) {
                     container.innerHTML = '';
-                    images.forEach((src, i) => {
+                    images?.forEach((src, i) => {
                         container.innerHTML += `<img data-index="${i}" src="${src}" class="${extraClasses} ${i===0 ? 'opacity-100' : 'opacity-0'}">`;
                     });
                 }
             };
 
             // Prewed Sliders
-            buildSlider('quote-slider', D.gallery.quoteSlider, 'slide-photo absolute inset-0 w-full h-full object-cover transition-opacity duration-1000');
-            buildSlider('bride-slider', D.bride.photos, 'slide-photo-bride absolute inset-0 w-full h-full object-cover transition-opacity duration-1000');
-            buildSlider('groom-slider', D.groom.photos, 'slide-photo-groom absolute inset-0 w-full h-full object-cover transition-opacity duration-1000');
+            buildSlider('quote-slider', D.gallery?.quoteSlider, 'slide-photo absolute inset-0 w-full h-full object-cover transition-opacity duration-1000');
+            buildSlider('bride-slider', D.bride?.photos, 'slide-photo-bride absolute inset-0 w-full h-full object-cover transition-opacity duration-1000');
+            buildSlider('groom-slider', D.groom?.photos, 'slide-photo-groom absolute inset-0 w-full h-full object-cover transition-opacity duration-1000');
             
             // Countdown BG
             const countdownBgContainer = document.getElementById('countdown-bg-container');
             if(countdownBgContainer) {
                 countdownBgContainer.innerHTML = '';
-                D.gallery.countdownBg.forEach((src, i) => {
+                D.gallery?.countdownBg?.forEach((src, i) => {
                     countdownBgContainer.innerHTML += `<img src="${src}" class="countdown-bg zoom-bg absolute inset-0 w-full h-full object-cover ${i===0 ? 'opacity-100 scale-110' : 'opacity-0 scale-100'}">`;
                 });
             }
@@ -987,7 +1054,7 @@
             const mainSlider = document.getElementById('main-gallery-slider');
             if(mainSlider) {
                 mainSlider.innerHTML = '';
-                D.gallery.sliders.forEach((src, i) => {
+                D.gallery?.sliders?.forEach((src, i) => {
                     mainSlider.innerHTML += `<img data-index="${i}" src="${src}" class="main-gallery-img w-full h-[400px] md:h-[650px] flex-shrink-0 object-cover snap-center bg-[#e8ded5] cursor-zoom-in" onclick="openLightbox(window.WEDDING_DATA.gallery.sliders, ${i})">`;
                 });
             }
@@ -996,14 +1063,14 @@
             const thumbSlider = document.getElementById('thumbnail-slider');
             if(thumbSlider) {
                 thumbSlider.innerHTML = '';
-                D.gallery.thumbnails.forEach((src, i) => {
+                D.gallery?.thumbnails?.forEach((src, i) => {
                     const borderClass = i === 0 ? 'brightness-100 border-2 border-white' : 'brightness-50 border-2 border-transparent';
                     thumbSlider.innerHTML += `<img data-index="${i}" src="${src}" class="gallery-thumbnail w-20 h-24 md:w-24 md:h-32 flex-shrink-0 object-cover cursor-pointer snap-center transition-all duration-300 ${borderClass}">`;
                 });
             }
 
             // Grid Photos
-            D.gallery.grids.forEach((src, i) => {
+            D.gallery?.grids?.forEach((src, i) => {
                 const img = document.getElementById(`grid-img-${i}`);
                 if(img) {
                     img.src = src;
@@ -1015,6 +1082,29 @@
         populateWeddingData();
         // ---------------------------------------------
 
+        // --- YOUTUBE IFRAME API SETUP ---
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var ytPlayer;
+        window.onYouTubeIframeAPIReady = function() {
+            ytPlayer = new YT.Player('data-gallery-video', {
+                events: {
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        };
+
+        function onPlayerStateChange(event) {
+            // Jika video mulai diputar (State 1 = PLAYING)
+            if (event.data == YT.PlayerState.PLAYING) {
+                if (typeof window.pauseBackgroundMusic === 'function') {
+                    window.pauseBackgroundMusic();
+                }
+            }
+        }
 
         function updateVh() {
             let vh = window.innerHeight * 0.01;
@@ -1135,7 +1225,7 @@
             window.addEventListener('resize', () => { updateVh(); });
 
             const btnBuka = document.getElementById('btn-buka');
-            const welcomeGate = document.getElementById('welcome-gate');
+            const welcoShintate = document.getElementById('welcome-gate');
             const mainContent = document.getElementById('main-content');
             const bgVideo = document.getElementById('bg-video');
             const whiteTransition = document.getElementById('white-transition');
@@ -1143,6 +1233,17 @@
             const musicToggle = document.getElementById('music-toggle');
             
             let isPlaying = false;
+
+            // Ekspos fungsi pause agar bisa dipanggil dari luar (oleh API YouTube)
+            window.pauseBackgroundMusic = function() {
+                if (isPlaying) {
+                    weddingMusic.pause();
+                    document.getElementById('music-icon-play').classList.add('hidden');
+                    document.getElementById('music-icon-pause').classList.remove('hidden');
+                    isPlaying = false;
+                }
+            };
+
             musicToggle.addEventListener('click', () => {
                 if (isPlaying) {
                     weddingMusic.pause();
@@ -1202,7 +1303,7 @@
                     setTimeout(() => {
                         updateVh();
                         if (bgVideo) bgVideo.play().catch(err => console.log("Video auto-play blocked", err)); 
-                        welcomeGate.classList.add('gate-hidden');
+                        welcoShintate.classList.add('gate-hidden');
                         mainContent.classList.remove('hidden');
                         window.scrollTo(0, 0);
 
@@ -1259,7 +1360,9 @@
                 const cloneElements = (slider) => {
                     const items = Array.from(slider.children);
                     items.forEach(item => slider.appendChild(item.cloneNode(true)));
-                    items.forEach(item => slider.insertBefore(item.cloneNode(true), slider.firstChild));
+                    for (let i = items.length - 1; i >= 0; i--) {
+                        slider.insertBefore(items[i].cloneNode(true), slider.firstChild);
+                    }
                 };
                 cloneElements(mainSlider);
                 cloneElements(thumbSlider);
@@ -1294,9 +1397,10 @@
                 };
 
                 const updateThumbStyles = (activeIndex) => {
-                    const origIndex = activeIndex % window.WEDDING_DATA.gallery.thumbnails.length;
+                    const thumbCount = window.WEDDING_DATA.gallery?.thumbnails?.length || 1;
+                    const origIndex = activeIndex % thumbCount;
                     Array.from(thumbSlider.children).forEach((thumb, i) => {
-                        if (i % window.WEDDING_DATA.gallery.thumbnails.length === origIndex) {
+                        if (i % thumbCount === origIndex) {
                             thumb.classList.replace('brightness-50', 'brightness-100');
                             thumb.classList.replace('border-transparent', 'border-white');
                         } else {
